@@ -1,5 +1,15 @@
 Moodle Direct Release Notes
 ------------------------------------------------------------------------------------
+Date:       2015-Sept-28
+Release:    v2015030304
+
+- Repository moved to Turnitin account in github.
+- Fixes:
+    - Completion lib not included in Moodle 1.9.
+    - Upload limits reworked to not show unlimited for students when uploading.
+    - Warning when bulk downloading removed.
+
+####################################################################################
 Date:       2015-Aug-18
 Release:    v2015030303
 

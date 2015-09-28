@@ -39,6 +39,10 @@ defined("TURNITINTOOL_ASSIGNMENT_WRONGCLASS_ERROR") or define("TURNITINTOOL_ASSI
  * in the Turnitin integrations database tables
  */
 defined("TURNITINTOOL_APISRC") or define("TURNITINTOOL_APISRC","12");
+/**
+ * Maximum file size that Turnitin will accept.
+ */
+define('TURNITINTOOL_MAX_FILE_UPLOAD_SIZE', 41943040);
 
 /**
  * Include the loaderbar class file
@@ -5084,7 +5088,7 @@ function turnitintool_view_submission_form_post_29($cm, $turnitintool, $optional
     $output.='  <script language="javascript" type="text/javascript">
                     <!--
                     updateSubFormPost29('.$turnitintool->type.');
-                    updateSubForm(submissionArray,stringsArray,document.submissionform,'.$turnitintool->reportgenspeed.',"'.$utype.'");
+                    updateSubForm(submissionArray,stringsArray,document.getElementById("post_29_submission_form"),'.$turnitintool->reportgenspeed.',"'.$utype.'");
                     //-->
                 </script>';
     
