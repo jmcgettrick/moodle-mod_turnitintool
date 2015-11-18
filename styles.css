@@ -545,3 +545,10 @@ button {
     text-align: center;
     width: 100%;
 }
+
+.tii_genspeednote {
+    border: 1px solid #6fcaff;
+    background: #bbe6ff;
+    padding: 10px;
+    margin-bottom: 16px;
+}
