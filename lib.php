@@ -2718,7 +2718,7 @@ function turnitintool_overallgrade($inboxarray,$maxgrade,$parts,$scale) {
     if ( !is_null( $overallgrade ) AND gettype( $scale ) == 'object' ) {
         return ( $overallgrade == 0 ) ? 1 : ceil( $overallgrade );
     } else {
-        return ( !is_nan( $overallgrade ) AND !is_null( $overallgrade ) ) ? number_format( $overallgrade, 1 ) : '-';
+        return ( !is_nan( $overallgrade ) AND !is_null( $overallgrade ) ) ? number_format( $overallgrade, 2 ) : '-';
     }
 }
 
@@ -6670,7 +6670,7 @@ function turnitintool_buildgrades($turnitintool,$thisuser) {
             //Using a scale
             $overallgrade=( $gradearray->grades[$thisuser->id]=='-' ) ? NULL : $gradearray->grades[$thisuser->id];
         } else {
-            $overallgrade=( $gradearray->grades[$thisuser->id]=='-' ) ? NULL : number_format( $gradearray->grades[$thisuser->id],1 );
+            $overallgrade=( $gradearray->grades[$thisuser->id]=='-' ) ? NULL : number_format( $gradearray->grades[$thisuser->id],2 );
         }
         $grades->rawgrade=$overallgrade;
         return $grades;
