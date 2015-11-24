@@ -131,7 +131,7 @@ class mod_turnitintool_mod_form extends moodleform_mod {
         turnitintool_modform_help_icon('reportgenspeed', 'reportgenspeed', 'turnitintool', $mform);
         $mform->setDefault('reportgenspeed', $CFG->turnitin_default_reportgenspeed);
 
-        $mform->addElement('html', html_writer::tag('div', get_string('genspeednote', 'turnitintooltwo'), array('class' => 'tii_genspeednote')));
+        $mform->addElement('html', html_writer::tag('div', get_string('genspeednote', 'turnitintool'), array('class' => 'tii_genspeednote')));
         
 
         $suboptions = array( 0 => get_string('norepository','turnitintool'), 1 => get_string('standardrepository','turnitintool'));
