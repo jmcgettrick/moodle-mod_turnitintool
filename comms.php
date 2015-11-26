@@ -774,9 +774,9 @@ class turnitintool_commclass {
         $xmlcall=$this->xmlToSimple($this->result);
         if ( isset($this->simplexml->object->assign) ) {
             $output->assign = (string)$this->simplexml->object->assign;
-            $output->dtstart = (integer)$this->simplexml->object->dtstart;
-            $output->dtdue = (integer)$this->simplexml->object->dtdue;
-            $output->dtpost = (integer)$this->simplexml->object->dtpost;
+            $output->dtstart = strtotime($this->simplexml->object->dtstart);
+            $output->dtdue = strtotime($this->simplexml->object->dtdue);
+            $output->dtpost = strtotime($this->simplexml->object->dtpost);
             $output->ainst = (string)$this->simplexml->object->ainst;
             $output->report_gen_speed = (integer)$this->simplexml->object->generate;
             $output->s_view_report = (boolean)$this->simplexml->object->sviewreports;

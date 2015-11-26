@@ -454,6 +454,6 @@ foreach ($parts as $part) {
     $parts_string.= $part->partname.': '.$part->tiiassignid;
 }
 $parts_string.=")";
-echo '<!-- Turnitin Moodle Direct Version: '.$module->version.' - '.$parts_string.' -->';
+echo '<!-- Turnitin Moodle Direct Version: '.turnitintool_get_version().' - '.$parts_string.' -->';
 
 /* ?> */
