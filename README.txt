@@ -1,5 +1,15 @@
-Moodle Direct Release Notes
+Moodle Direct V1 Release Notes
 ------------------------------------------------------------------------------------
+Date:       2015-Nov-25
+Release:    v2015030305
+
+- Added a note to highlight the 24 hour Originality Report delay for resubmissions. 
+- Fixes:
+    Changed rounding for grading to use two decimal places.
+    Assignment dates handled correctly in course reset.
+    Removed undefined variable notice in inbox footer when debugging is enabled.
+
+####################################################################################
 Date:       2015-Sept-28
 Release:    v2015030304
 

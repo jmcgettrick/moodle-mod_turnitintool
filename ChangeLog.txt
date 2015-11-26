@@ -1,3 +1,8 @@
+
+2015-11-25 : Added a note to highlight the 24 hour Originality Report delay for resubmissions. 
+2015-11-25 : Changed rounding for grading to use two decimal places.
+2015-11-25 : Assignment dates handled correctly in course reset.
+2015-11-25 : Removed undefined variable notice in inbox footer when debugging is enabled.
 2015-08-18 : Support for Moodle 2.9 including rewriting of submission workflow.
 2015-08-18 : API URL changed for UK accounts.
 2015-08-18 : Due date change no longer causes calendar event error.
