@@ -1,6 +1,6 @@
 Moodle Direct V1 Release Notes
 ------------------------------------------------------------------------------------
-Date:       2015-Nov-25
+Date:       2015-Nov-26
 Release:    v2015030305
 
 - Added a note to highlight the 24 hour Originality Report delay for resubmissions. 
