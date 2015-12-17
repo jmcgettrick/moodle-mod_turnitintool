@@ -90,7 +90,7 @@ class turnitintool_commclass {
         $this->accountid=$CFG->turnitin_account_id;
         $this->uid=$iUid;
 
-        // Convert the email, firstname and lastname to psuedos for students if the option is set in config
+        // Convert the email, firstname and lastname to pseudos for students if the option is set in config
         // Unless the user is already logged as a tutor then use real details
         if ( isset( $CFG->turnitin_enablepseudo ) AND $CFG->turnitin_enablepseudo == 1 AND $iUtp == 1 AND !turnitintool_istutor( $iUem ) ) {
             $iUfn = turnitintool_pseudofirstname();

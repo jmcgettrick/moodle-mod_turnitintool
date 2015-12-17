@@ -7611,7 +7611,7 @@ function turnitintool_module_group($cm) {
  * Convert a regular email into the pseudo equivelant for student data privacy purpose
  *
  * @param string $email The user' module's lastname
- * @return string A psuedo email address
+ * @return string A pseudo email address
  */
 function turnitintool_pseudoemail( $email ) {
     global $CFG;
@@ -7626,7 +7626,7 @@ function turnitintool_pseudoemail( $email ) {
 /**
  * Convert a regular firstname into the pseudo equivelant for student data privacy purpose
  *
- * @return string A psuedo firstname address
+ * @return string A pseudo firstname address
  */
 function turnitintool_pseudofirstname() {
     global $CFG;
@@ -7637,7 +7637,7 @@ function turnitintool_pseudofirstname() {
  * Convert a regular lastname into the pseudo equivelant for student data privacy purpose
  *
  * @param string $email The users email address
- * @return string A psuedo lastname address
+ * @return string A pseudo lastname address
  */
 function turnitintool_pseudolastname( $email ) {
     global $CFG;

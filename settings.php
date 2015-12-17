@@ -159,8 +159,8 @@ if ($ADMIN->fulltree) {
         $settings->add(new admin_setting_configselect('turnitin_pseudolastname', get_string('pseudolastname', 'turnitintool'),
                         get_string('pseudolastname_desc', 'turnitintool'), 0, $lnoptions));
 
-        $settings->add(new admin_setting_configselect('turnitin_lastnamegen', get_string('psuedolastnamegen', 'turnitintool'),
-                        get_string('psuedolastnamegen_desc', 'turnitintool' ), 0, $options));
+        $settings->add(new admin_setting_configselect('turnitin_lastnamegen', get_string('pseudolastnamegen', 'turnitintool'),
+                        get_string('pseudolastnamegen_desc', 'turnitintool' ), 0, $options));
 
         $settings->add(new admin_setting_configtext('turnitin_pseudosalt', get_string('pseudoemailsalt', 'turnitintool'),
                         get_string('pseudoemailsalt_desc', 'turnitintool'), ''));
