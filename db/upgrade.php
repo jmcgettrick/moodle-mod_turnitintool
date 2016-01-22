@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * @package   turnitintool
  * @copyright 2012 Turnitin
@@ -481,6 +481,19 @@ function xmldb_turnitintool_upgrade($oldversion) {
         $apiurl = get_config('', 'turnitin_apiurl');
         $newurl = str_replace('submit.ac.uk', 'api.turnitinuk.com', strtolower($apiurl));
         set_config('turnitin_apiurl', $newurl);
+    }
+
+    if ($oldversion < 2015030305) {
+        if (condition) {
+            $dbman=$DB->get_manager();
+            $table = new xmldb_table('turnitintool');
+            $field = new xmldb_field('institution_check', XMLDB_TYPE_INTEGER, '1', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, 0, 'needs_updating');
+        } else {
+            $table = new xmldb_table('turnitintool');
+            $field = new xmldb_field('institution_check');
+            $field->setAttributes(XMLDB_TYPE_INTEGER, '1', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, null, null, 0, 'needs_updating');
+            $result = $result && add_field($table, $field);
+        }
     }
 
     return $result;
