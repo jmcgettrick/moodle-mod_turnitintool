@@ -483,11 +483,14 @@ function xmldb_turnitintool_upgrade($oldversion) {
         set_config('turnitin_apiurl', $newurl);
     }
 
-    if ($oldversion < 2015030305) {
-        if (condition) {
+    if ($result && $oldversion < 2015030306) {
+        if (is_callable(array($DB,'get_manager'))) {
             $dbman=$DB->get_manager();
             $table = new xmldb_table('turnitintool');
             $field = new xmldb_field('institution_check', XMLDB_TYPE_INTEGER, '1', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, 0, 'needs_updating');
+            if (!$dbman->field_exists($table, $field)) {
+                $dbman->add_field($table, $field);
+            }
         } else {
             $table = new xmldb_table('turnitintool');
             $field = new xmldb_field('institution_check');
