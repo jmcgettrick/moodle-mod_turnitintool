@@ -75,7 +75,7 @@ class restore_turnitintool_activity_structure_step extends restore_activity_stru
     }
 
     protected function process_turnitintool_courses($data) {
-        global $CFG, $DB;
+        global $DB, $USER;
 
         $data = (object)$data;
         $oldid = $data->id;
@@ -83,26 +83,14 @@ class restore_turnitintool_activity_structure_step extends restore_activity_stru
 
         $owneremail = (empty($data->owneremail)) ? join(array_splice(explode(".",$data->ownerun),0,-1)) : $data->owneremail;
         $owner = $DB->get_record('user', array('email'=>$owneremail));
+
         if ($owner) {
-            $data->ownerid=$owner->id;
-        } else { // Turnitin class owner not found from email address etc create user account
-            $i=0;
-            $newuser=false;
-            while (!is_object($newuser)) { // Keep trying to create a new username
-                $username = ($i==0) ? $data->ownerun : $data->ownerun.'_'.$i; // Append number if username exists
-                $i++;
-                $newuser = create_user_record($username,substr($i."-".md5($username),0,8));
-                if (is_object($newuser)) {
-                    $newuser->email = $owneremail;
-                    $newuser->firstname = $data->ownerfn;
-                    $newuser->lastname = $data->ownerln;
-                    if (!$DB->update_record("user",$newuser)) {
-                        turnitintool_print_error('userupdateerror','turnitintool');
-                    }
-                }
-            }
-            $data->ownerid=$newuser->id;
+            $data->ownerid = $owner->id;
+        } else {
+            // Turnitin class owner not found so use restoring user as owner
+            $data->ownerid = $USER->id;
         }
+
         $tiiowner = new object();
         $tiiowner->userid = $data->ownerid;
         $tiiowner->turnitin_uid = $data->ownertiiuid;
