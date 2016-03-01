@@ -483,7 +483,7 @@ function xmldb_turnitintool_upgrade($oldversion) {
         set_config('turnitin_apiurl', $newurl);
     }
 
-    if ($result && $oldversion < 2015030306) {
+    if ($result && $oldversion < 2016030101) {
         if (is_callable(array($DB,'get_manager'))) {
             $dbman=$DB->get_manager();
             $table = new xmldb_table('turnitintool');
