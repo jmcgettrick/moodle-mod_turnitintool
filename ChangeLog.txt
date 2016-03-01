@@ -1,4 +1,7 @@
 
+2016-03-01 : Changed Advanced Turnitin Options form element ID to be unique.
+2016-03-01 : Unused (pre Moodle 2.6) $module settings removed from version.php.
+2016-03-01 : Fixed an issue where course restoration would break if a user's e-mail address has changed and user data is included.
 2015-11-26 : Added a note to highlight the 24 hour Originality Report delay for resubmissions. 
 2015-11-26 : Changed rounding for grading to use two decimal places.
 2015-11-26 : Assignment dates handled correctly in course reset.
