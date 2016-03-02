@@ -121,7 +121,7 @@ class mod_turnitintool_mod_form extends moodleform_mod {
         turnitintool_modform_help_icon('studentreports', 'studentreports', 'turnitintool', $mform);
         $mform->setDefault('studentreports', $CFG->turnitin_default_studentreports);
 
-        $mform->addElement('header', 'general', get_string('advancedoptions', 'turnitintool'));
+        $mform->addElement('header', 'advancedoptions', get_string('advancedoptions', 'turnitintool'));
         $mform->addElement('select', 'allowlate', get_string('allowlate', 'turnitintool'), $ynoptions);
         turnitintool_modform_help_icon('allowlate', 'allowlate', 'turnitintool', $mform);
         $mform->setDefault('allowlate', $CFG->turnitin_default_allowlate);
@@ -132,7 +132,7 @@ class mod_turnitintool_mod_form extends moodleform_mod {
         $mform->setDefault('reportgenspeed', $CFG->turnitin_default_reportgenspeed);
 
         $mform->addElement('html', html_writer::tag('div', get_string('genspeednote', 'turnitintool'), array('class' => 'tii_genspeednote')));
-        
+
 
         $suboptions = array( 0 => get_string('norepository','turnitintool'), 1 => get_string('standardrepository','turnitintool'));
 

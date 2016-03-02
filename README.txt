@@ -1,5 +1,14 @@
 Moodle Direct V1 Release Notes
 ------------------------------------------------------------------------------------
+Date:       2016-Mar-01
+Release:    v2016030101
+
+- Unused (pre Moodle 2.6) $module settings removed from version.php.
+- Fixes:
+    Changed Advanced Turnitin Options form element ID to be unique.
+    Fixed an issue where course restoration would break if a user's e-mail address has changed and user data is included.
+
+####################################################################################
 Date:       2015-Nov-26
 Release:    v2015030305
 
