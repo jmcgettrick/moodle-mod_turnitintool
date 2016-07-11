@@ -284,5 +284,3 @@ class mod_turnitintool_mod_form extends moodleform_mod {
 
     }
 }
-
-/* ?> */
