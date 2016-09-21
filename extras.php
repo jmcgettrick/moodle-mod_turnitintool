@@ -584,7 +584,7 @@
             }
             turnitintool_print_error('connecttesterror','turnitintool',$CFG->wwwroot.'/admin/settings.php?section=modsettingturnitintool',$rmessage,__FILE__,__LINE__);
         } else {
-            $data=new object();
+            $data=new stdClass();
             $data->userid=$USER->id;
             $data->turnitin_uid=$tiiuid;
             $data->turnitin_utp=$tii->utp;
