@@ -193,7 +193,6 @@ class submit_assignment extends moodleform {
                     $mform->setType('agreement', PARAM_INT);
                 } else {
                     $mform->addElement('checkbox', 'agreement', '', $CFG->turnitin_agreement);
-                    $mform->setDefault('agreement', '1', true);
                 }
 
                 $mform->addElement('submit', 'submitbutton', get_string('addsubmission', 'turnitintool'));

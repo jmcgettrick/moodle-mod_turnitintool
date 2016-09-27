@@ -46,6 +46,7 @@ var newwindow;
 
 function checkDisclaimer() {
     if ($("#id_agreement").attr('type') != 'hidden') {
+        $('#id_submitbutton').prop('disabled', true);
         $('#id_agreement').on('click', function() {
             $('#id_submitbutton').prop('disabled', !($(this).is(':checked')));
         });
