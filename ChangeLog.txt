@@ -1,8 +1,11 @@
 
+2016-10-12 : Changed the deprecated Events API to use the new Events 2 API.
+2016-10-12 : Fixed an issue with references to object() that would cause warnings to be displayed during debugging mode.
+2016-10-12 : Fixed an issue where a student could submit without agreeing to the disclaimer.
 2016-03-01 : Changed Advanced Turnitin Options form element ID to be unique.
 2016-03-01 : Unused (pre Moodle 2.6) $module settings removed from version.php.
 2016-03-01 : Fixed an issue where course restoration would break if a user's e-mail address has changed and user data is included.
-2015-11-26 : Added a note to highlight the 24 hour Originality Report delay for resubmissions. 
+2015-11-26 : Added a note to highlight the 24 hour Originality Report delay for resubmissions.
 2015-11-26 : Changed rounding for grading to use two decimal places.
 2015-11-26 : Assignment dates handled correctly in course reset.
 2015-11-26 : Removed undefined variable notice in inbox footer when debugging is enabled.
@@ -123,7 +126,7 @@
 2012-02-02 : Added backup up and restore from 1.9 to 2.1+ support (no user data)
 2012-02-02 : Moved temp upload file directory from system temp to moodledata temp to fix IIS permissions issues
 2012-02-02 : Fixed bug where Turnitin classes were prematurely expiring
-2012-02-02 : Re-factored unlink users feature to now remember unlinked users and allow relinking 
+2012-02-02 : Re-factored unlink users feature to now remember unlinked users and allow relinking
 2012-02-02 : Added communication and activity diagnostic logs to the admin config area
 2011-12-20 : Added fix to clean $_POST array inputs before passing the array into functions to improve security
 2011-12-02 : Fixed $post variable missing notice on the student submission inbox
