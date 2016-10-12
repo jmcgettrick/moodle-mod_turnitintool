@@ -256,7 +256,7 @@ function turnitintool_add_instance($turnitintool) {
             turnitintool_print_error('partdberror','turnitintool',NULL,$i,__FILE__,__LINE__);
         }
 
-        $event = new object();
+        $event = new stdClass();
         $event->name        = $turnitintool->name.' - '.$part->partname;
         $event->description = ($turnitintool->intro==NULL) ? '' : $turnitintool->intro;
         $event->courseid    = $turnitintool->course;
@@ -565,7 +565,7 @@ function turnitintool_update_instance($turnitintool) {
         $part->dtdue=$tiipost->dtdue;
         $part->dtpost=$tiipost->dtpost;
 
-        $event = new object();
+        $event = new stdClass();
         $event->name        = $turnitintool->name.' - '.$part->partname;
         $event->description = $turnitintool->intro;
         $event->courseid    = $turnitintool->course;
@@ -1032,7 +1032,7 @@ function turnitintool_usersetup($userdata,$status='',&$tii,&$loaderbar) {
         }
 
         $turnitinid=$tii->getUserID();
-        $turnitinuser=new object();
+        $turnitinuser=new stdClass();
 
         if ( isset( $turnitintool_user->id ) AND $turnitintool_user->id ) {
             $turnitinuser->id = $turnitintool_user->id;
@@ -1116,7 +1116,7 @@ function turnitintool_classsetup($course,$owner,$status='',&$tii,&$loaderbar) {
 
         $post->cid=$tii->getClassID();
         $turnitin_ctl=str_replace("(".$uniquestring.")","(Moodle ".$post->cid.")",$turnitin_ctl);
-        $turnitincourse=new object();
+        $turnitincourse=new stdClass();
         $turnitincourse->courseid=$course->id;
         $turnitincourse->ownerid=$owner->id;
         $turnitincourse->turnitin_cid=$post->cid;
@@ -2649,7 +2649,7 @@ function turnitintool_view_student_submissions($cm,$turnitintool) {
  * @return object The converted array
  */
 function turnitintool_array_to_object($input) {
-    $output = new object();
+    $output = new stdClass();
     foreach ($input as $key=>$value) {
         if (!empty($key)) {
             $output->$key = $value;
@@ -2910,7 +2910,7 @@ function turnitintool_process_notes($cm,$turnitintool,$view,$post) {
         $isgrader=has_capability('mod/turnitintool:grade', turnitintool_get_context('MODULE', $cm->id));
 
         if (isset($post["action"]) AND $post["action"]!="view") {
-            $comment=new object();
+            $comment=new stdClass();
             if (($post["action"]=="edit" OR $post["action"]=="delete") AND !$comment=turnitintool_get_record('turnitintool_comments','id',$post["comment"])) {
                 turnitintool_print_error('commentgeterror','turnitintool',NULL,NULL,__FILE__,__LINE__);
                 exit();
@@ -4453,7 +4453,7 @@ function turnitintool_update_form_grades($cm,$turnitintool,$post) {
             }
 
             // now push the grade to Turnitin
-            $post=new object();
+            $post=new stdClass();
             $post->oid=$submission->submission_objectid;
             $post->score=$thisgrade;
             $post->cid=turnitintool_getCID($turnitintool->course);
@@ -5089,9 +5089,10 @@ function turnitintool_view_submission_form_post_29($cm, $turnitintool, $optional
                     <!--
                     updateSubFormPost29('.$turnitintool->type.');
                     updateSubForm(submissionArray,stringsArray,document.getElementById("post_29_submission_form"),'.$turnitintool->reportgenspeed.',"'.$utype.'");
+                    checkDisclaimer();
                     //-->
                 </script>';
-    
+
     return $output;
 }
 
@@ -5577,7 +5578,7 @@ function turnitintool_dofileupload_post_29($cm,$turnitintool,$userid,$post) {
         exit();
     }
 
-    $submitobject = new object();
+    $submitobject = new stdClass();
     $submitobject->userid=$userid;
     $submitobject->turnitintoolid=$turnitintool->id;
     $submitobject->submission_part=$post['submissionpart'];
@@ -5733,7 +5734,7 @@ function turnitintool_dofileupload_pre_29($cm,$turnitintool,$userid,$post) {
     }
 
     if (!$error) {
-        $submitobject = new object();
+        $submitobject = new stdClass();
         $submitobject->userid=$userid;
         $submitobject->turnitintoolid=$turnitintool->id;
         $submitobject->submission_part=$post['submissionpart'];
@@ -5884,7 +5885,7 @@ function turnitintool_dotextsubmission($cm,$turnitintool,$userid,$post) {
 
         $filename=$post['submissionpart'].'_'.time().'_'.$userid.'.txt';
 
-        $submitobject = new object();
+        $submitobject = new stdClass();
         $submitobject->userid=$userid;
         $submitobject->turnitintoolid=$turnitintool->id;
 
@@ -6126,7 +6127,7 @@ function turnitintool_upload_submission($cm,$turnitintool,$submission) {
         unlink($tempname); // If we made a temp file earlier for the Moodle 2 file API delete it here
     }
 
-    $update=new object();
+    $update=new stdClass();
 
     if ($tii->getRerror()) {
         if ($tii->getAPIunavailable()) {
@@ -6562,7 +6563,7 @@ function turnitintool_duplicate_recycle($courseid,$action,$legacy=false) {
                     $erroroutput[]=($tii->getAPIunavailable()) ? get_string('apiunavailable','turnitintool') : $tii->getRmessage();
                 }
 
-                $dbpart=new object();
+                $dbpart=new stdClass();
                 $dbpart->id=$partid;
                 $dbpart->tiiassignid=$newassignid;
                 if (!$update=turnitintool_update_record('turnitintool_parts',$dbpart)) {
@@ -6607,7 +6608,7 @@ function turnitintool_duplicate_recycle($courseid,$action,$legacy=false) {
 
     } else {
         if (isset($erroroutput)) { // If there was a comms error roll back the class ID data changes
-            $classupdatedata=new object();
+            $classupdatedata=new stdClass();
             $classupdatedata->id=$courseid;
             $classupdatedata->turnitin_cid=$oldclassid;
             $classupdatedata->turnitin_ctl=$oldclasstitle;

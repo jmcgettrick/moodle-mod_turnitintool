@@ -44,6 +44,15 @@ var newwindow;
     });
 })(jQuery);
 
+function checkDisclaimer() {
+    if ($("#id_agreement").attr('type') != 'hidden') {
+        $('#id_submitbutton').prop('disabled', true);
+        $('#id_agreement').on('click', function() {
+            $('#id_submitbutton').prop('disabled', !($(this).is(':checked')));
+        });
+    }
+}
+
 // Configure submit paper form elements depending on what submission type is allowed
 function updateSubFormPost29(submissiontype) {
     if (submissiontype == 2) {

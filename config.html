@@ -1,5 +1,5 @@
 <?php
-$module=new object();
+$module=new stdClass();
 require_once($CFG->dirroot.'/mod/turnitintool/version.php');
 ?>
 <div><a href="<?php echo $CFG->wwwroot; ?>/mod/turnitintool/extras.php"><?php print_string("connecttest", "turnitintool") ?></a> | <a href="<?php echo $CFG->wwwroot; ?>/mod/turnitintool/extras.php?do=viewreport"><?php print_string("showusage", "turnitintool") ?></a> | <a href="<?php echo $CFG->wwwroot; ?>/mod/turnitintool/extras.php?do=savereport"><?php print_string("saveusage", "turnitintool") ?></a> | <a href="<?php echo $CFG->wwwroot; ?>/mod/turnitintool/extras.php?do=unlinkusers"><?php print_string("unlinkusers", "turnitintool"); ?></a> - (<?php print_string('moduleversion','turnitintool') ?>: <?php echo $module->version; ?>)</div>

@@ -770,7 +770,7 @@ class turnitintool_commclass {
      * @param string $status The status to pass to the loaderbar class
      */
     function getAssignmentObject() {
-        $output=new object();
+        $output=new stdClass();
         $xmlcall=$this->xmlToSimple($this->result);
         if ( isset($this->simplexml->object->assign) ) {
             $output->assign = (string)$this->simplexml->object->assign;

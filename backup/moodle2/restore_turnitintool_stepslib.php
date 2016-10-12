@@ -91,7 +91,7 @@ class restore_turnitintool_activity_structure_step extends restore_activity_stru
             $data->ownerid = $USER->id;
         }
 
-        $tiiowner = new object();
+        $tiiowner = new stdClass();
         $tiiowner->userid = $data->ownerid;
         $tiiowner->turnitin_uid = $data->ownertiiuid;
         if (!$tiiuser = $DB->get_record('turnitintool_users', array('userid'=>$data->ownerid))) {
@@ -125,7 +125,7 @@ class restore_turnitintool_activity_structure_step extends restore_activity_stru
 
         // Create TII User Account Details
         if (!$tiiuser = $DB->get_record('turnitintool_users', array('turnitin_uid'=>$data->tiiuserid))) {
-            $tiiuser = new object();
+            $tiiuser = new stdClass();
             $tiiuser->userid=$data->userid;
             $tiiuser->turnitin_uid=$data->tiiuserid;
             $DB->insert_record('turnitintool_users',$tiiuser);

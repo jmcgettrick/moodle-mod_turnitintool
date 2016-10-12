@@ -4,7 +4,7 @@
 * @copyright 2012 Turnitin
 */
 
-$handlers = array();
+$observers = array();
 
 /* List of events thrown from turnitintool module
 
