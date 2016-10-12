@@ -1,5 +1,14 @@
 Moodle Direct V1 Release Notes
 ------------------------------------------------------------------------------------
+Date:       2016-Oct-12
+Release:    v2016101201
+
+- Changed the deprecated Events API to use the new Events 2 API.
+- Fixes:
+    Fixed an issue with references to object() that would cause warnings to be displayed during debugging mode.
+    Fixed an issue where a student could submit without agreeing to the disclaimer.
+
+####################################################################################
 Date:       2016-Mar-01
 Release:    v2016030101
 
@@ -12,7 +21,7 @@ Release:    v2016030101
 Date:       2015-Nov-26
 Release:    v2015030305
 
-- Added a note to highlight the 24 hour Originality Report delay for resubmissions. 
+- Added a note to highlight the 24 hour Originality Report delay for resubmissions.
 - Fixes:
     Changed rounding for grading to use two decimal places.
     Assignment dates handled correctly in course reset.
@@ -228,21 +237,21 @@ Release:    v2010042301
 ####################################################################################
 Date:       2010-April-06
 Release:    v2010040601
- 
-- Provides seamless integration into Turnitin using Moodle workflow 
-- Uses an activity module so that we can update Turnitin independently of Moodle 
-- Uses real Turnitin accounts to allow users to log directly in to Turnitin (should they need to) 
-- Uses a 'pull' approach to information and has no 'call-backs' to the local VLE 
-- Will run behind a fire wall 
-- Will handle multi-part assignments (one assignment many files) 
-- Sends GradeMark marking information to the Moodle GradeBook 
-- Grades are not released until the due date 
-- Course recycle will correctly copy forward Turnitin information 
-- Tutors can load work on behalf of students 
-- Turnitin classes can only have one owner. The class owner is set to the person that created the course in Moodle. Only the class owner will be able to see the assignments when logging in to Native Turnitin. However you can change the class owner from within Moodle if you are an instructor. 
+
+- Provides seamless integration into Turnitin using Moodle workflow
+- Uses an activity module so that we can update Turnitin independently of Moodle
+- Uses real Turnitin accounts to allow users to log directly in to Turnitin (should they need to)
+- Uses a 'pull' approach to information and has no 'call-backs' to the local VLE
+- Will run behind a fire wall
+- Will handle multi-part assignments (one assignment many files)
+- Sends GradeMark marking information to the Moodle GradeBook
+- Grades are not released until the due date
+- Course recycle will correctly copy forward Turnitin information
+- Tutors can load work on behalf of students
+- Turnitin classes can only have one owner. The class owner is set to the person that created the course in Moodle. Only the class owner will be able to see the assignments when logging in to Native Turnitin. However you can change the class owner from within Moodle if you are an instructor.
 
 Current Limitations
 - Does not support Oracle as the Moodle database
-- Will not update information changed in Turnitin by users in native Turnitin 
-- Will not work with assignments created under the framed-in API 
+- Will not update information changed in Turnitin by users in native Turnitin
+- Will not work with assignments created under the framed-in API
 - No support for revision assignment, master classes, GradeMark analytics, translations, Zip file upload, PeerMark, QuickSubmit
