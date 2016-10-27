@@ -4,7 +4,7 @@ Date:       2016-Oct-27
 Release:    v2016102701
 
 - Fixes:
-    Fixed an issue from the previous release to do with the disclaimer setting.
+    Fixed an issue from the previous release to do with the Moodle disclaimer setting.
 
 ####################################################################################
 Date:       2016-Oct-12
