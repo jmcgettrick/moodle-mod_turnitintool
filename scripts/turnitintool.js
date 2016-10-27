@@ -45,9 +45,9 @@ var newwindow;
 })(jQuery);
 
 function checkDisclaimer() {
-    if ($("#id_agreement").attr('type') != 'hidden') {
+    if ($('input[name$="agreement"]').attr('type') != 'hidden') {
         $('#id_submitbutton').prop('disabled', true);
-        $('#id_agreement').on('click', function() {
+        $('input[name$="agreement"]').on('click', function() {
             $('#id_submitbutton').prop('disabled', !($(this).is(':checked')));
         });
     }

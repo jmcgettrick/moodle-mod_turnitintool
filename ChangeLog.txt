@@ -1,4 +1,5 @@
 
+2016-10-27 : Fixed an issue from the previous release to do with the disclaimer setting.
 2016-10-12 : Changed the deprecated Events API to use the new Events 2 API.
 2016-10-12 : Fixed an issue with references to object() that would cause warnings to be displayed during debugging mode.
 2016-10-12 : Fixed an issue where a student could submit without agreeing to the disclaimer.
