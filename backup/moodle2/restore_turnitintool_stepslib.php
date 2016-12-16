@@ -131,6 +131,7 @@ class restore_turnitintool_activity_structure_step extends restore_activity_stru
             $DB->insert_record('turnitintool_users',$tiiuser);
         }
 
+        $data->submission_hash = $data->userid.'_'.$data->turnitintoolid.'_'.$data->submission_part;
         $newitemid = $DB->insert_record('turnitintool_submissions', $data);
         $this->set_mapping('turnitintool_submissions', $oldid, $newitemid);
     }
