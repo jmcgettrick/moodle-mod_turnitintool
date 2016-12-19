@@ -499,7 +499,7 @@ function xmldb_turnitintool_upgrade($oldversion) {
         }
     }
 
-    if ($result && $oldversion < 2016121602) {
+    if ($result && $oldversion < 2016121603) {
         $dbman=$DB->get_manager();
         // Grab any duplicated submission rows.
         $query = "SELECT
@@ -555,10 +555,8 @@ function xmldb_turnitintool_upgrade($oldversion) {
         $key = new xmldb_key('submission_hash', XMLDB_KEY_UNIQUE, array('submission_hash'));
         $dbman->add_key($table, $key);
 
-        // Leaving submission_hash for previous submission as null for testing.
-        // The alternative is to make it equal id as per below.
         // Retrospectively update the new column to be id for previous submissions.
-        // $DB->execute("UPDATE ".$CFG->prefix."turnitintool_submissions SET submission_hash = id WHERE submission_hash = NULL");
+        $DB->execute("UPDATE ".$CFG->prefix."turnitintool_submissions SET submission_hash = id WHERE submission_hash IS NULL");
     }
 
     return $result;
