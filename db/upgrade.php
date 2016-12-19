@@ -552,11 +552,13 @@ function xmldb_turnitintool_upgrade($oldversion) {
         if (!$dbman->field_exists($table, $field)) {
             $dbman->add_field($table, $field);
         }
-        $key = new xmldb_key('submission_hash', XMLDB_KEY_UNIQUE, array('submission_hash'));
-        $dbman->add_key($table, $key);
 
         // Retrospectively update the new column to be id for previous submissions.
         $DB->execute("UPDATE ".$CFG->prefix."turnitintool_submissions SET submission_hash = id WHERE submission_hash IS NULL");
+
+        // Add hash as key after update.
+        $key = new xmldb_key('submission_hash', XMLDB_KEY_UNIQUE, array('submission_hash'));
+        $dbman->add_key($table, $key);
     }
 
     return $result;
