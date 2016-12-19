@@ -4680,7 +4680,7 @@ function turnitintool_update_all_report_scores($cm,$turnitintool,$trigger,$loade
                             $insert->id=$ids[$key]->id;
                             $insertid=turnitintool_update_record('turnitintool_submissions',$insert);
                         } else {
-                            if ($check_hash = turnitintool_get_records_select('turnitintool_submissions', 'submission_hash='.$insert->submission_hash)) {
+                            if ($check_hash = turnitintool_get_records_select('turnitintool_submissions', "submission_hash='".$insert->submission_hash."'")) {
                                 $insert->id = $check_hash->id;
                                 $insertid=turnitintool_update_record('turnitintool_submissions',$insert);
                             } else {
@@ -5613,7 +5613,7 @@ function turnitintool_dofileupload_post_29($cm,$turnitintool,$userid,$post) {
         // Prevent duplication in issues where the TII servers may be inaccessible.
         // Check submission_hash doesn't exist already.
         $submitobject->submission_hash = $submitobject->userid.'_'.$submitobject->turnitintoolid.'_'.$submitobject->submission_part;
-        if ($check_hash = turnitintool_get_records_select('turnitintool_submissions', 'submission_hash='.$submitobject->submission_hash)) {
+        if ($check_hash = turnitintool_get_records_select('turnitintool_submissions', "submission_hash='".$submitobject->submission_hash."'")) {
             $submitobject->id = $check_hash->id;
             if (!turnitintool_update_record('turnitintool_submissions',$submitobject)) {
                 turnitintool_print_error('submissionupdateerror','turnitintool',NULL,NULL,__FILE__,__LINE__);
@@ -5780,7 +5780,7 @@ function turnitintool_dofileupload_pre_29($cm,$turnitintool,$userid,$post) {
             // Prevent duplication in issues where the TII servers may be inaccessible.
             // Check submission_hash doesn't exist already.
             $submitobject->submission_hash = $submitobject->userid.'_'.$submitobject->turnitintoolid.'_'.$submitobject->submission_part;
-            if ($check_hash = turnitintool_get_records_select('turnitintool_submissions', 'submission_hash='.$submitobject->submission_hash)) {
+            if ($check_hash = turnitintool_get_records_select('turnitintool_submissions', "submission_hash='".$submitobject->submission_hash."'")) {
                 $submitobject->id = $check_hash->id;
                 if (!turnitintool_update_record('turnitintool_submissions',$submitobject)) {
                     turnitintool_print_error('submissionupdateerror','turnitintool',NULL,NULL,__FILE__,__LINE__);
@@ -5942,7 +5942,7 @@ function turnitintool_dotextsubmission($cm,$turnitintool,$userid,$post) {
             // Prevent duplication in issues where the TII servers may be inaccessible.
             // Check submission_hash doesn't exist already.
             $submitobject->submission_hash = $submitobject->userid.'_'.$submitobject->turnitintoolid.'_'.$submitobject->submission_part;
-            if ($check_hash = turnitintool_get_records_select('turnitintool_submissions', 'submission_hash='.$submitobject->submission_hash)) {
+            if ($check_hash = turnitintool_get_records_select('turnitintool_submissions', "submission_hash='".$submitobject->submission_hash."'")) {
                 $submitobject->id = $check_hash->id;
                 if (!turnitintool_update_record('turnitintool_submissions',$submitobject)) {
                     turnitintool_print_error('submissionupdateerror','turnitintool',NULL,NULL,__FILE__,__LINE__);
