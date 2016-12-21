@@ -1499,7 +1499,7 @@ class turnitintool_commclass {
             'es'=>'es',
             'de'=>'de',
             'de_du'=>'de',
-            'zh_cn'=>'cn',
+            'zh_cn'=>'zh_hans',
             'zh_tw'=>'zh_tw',
             'pt_br'=>'pt_br',
             'th'=>'th',
