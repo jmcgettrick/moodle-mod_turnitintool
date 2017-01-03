@@ -1,5 +1,12 @@
 Moodle Direct V1 Release Notes
 ------------------------------------------------------------------------------------
+Date:       2016-Dec-22
+Release:    v2016121603
+
+- Fixes:
+    Fixed an issue with duplicate submission rows showing in the assignment inbox, removing the potential for duplicated grades being added.
+
+####################################################################################
 Date:       2016-Oct-27
 Release:    v2016102701
 
