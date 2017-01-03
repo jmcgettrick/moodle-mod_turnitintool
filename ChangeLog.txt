@@ -1,3 +1,4 @@
+2016-12-22 : Fixed an issue with duplicate submission rows showing in the assignment inbox, removing the potential for duplicated grades being added.
 2016-12-21 : Changed the language codes to correctly recognise Simplified Chinese in Moodle.
 2016-12-21 : Pass the correct Simplified Chinese language code to Turnitin.
 2016-10-27 : Fixed an issue from the previous release to do with the Moodle disclaimer setting.
