@@ -134,8 +134,8 @@ class restore_turnitintool_activity_structure_step extends restore_activity_stru
 
         // Check if this hash already exists.
         if ($check_hash = $DB->get_record('turnitintool_submissions', array('submission_hash' => $data->submission_hash))) {
-            // Update the grade if the most recent submission has a higher grade.
-            if ($check_hash->submission_modified >= $data->submission_modified && $data->submission_grade > $check_hash->submission_grade) {
+            // Update the row/grade if this submission is the most recent submission.
+            if ($check_hash->submission_modified >= $data->submission_modified) {
                 $data->id = $check_hash->id;
                 $DB->update_record('turnitintool_submissions', $data);
             }
