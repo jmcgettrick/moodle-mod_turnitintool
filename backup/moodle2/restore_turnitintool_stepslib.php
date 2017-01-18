@@ -122,6 +122,7 @@ class restore_turnitintool_activity_structure_step extends restore_activity_stru
         $data->turnitintoolid = $this->get_new_parentid('turnitintool');
         $data->submission_part = $this->get_mappingid('turnitintool_parts', $data->submission_part);
         $data->userid = $this->get_mappingid('user', $data->userid);
+        $data->submission_hash = $data->userid.'_'.$data->turnitintoolid.'_'.$data->submission_part;
 
         // Create TII User Account Details
         if (!$tiiuser = $DB->get_record('turnitintool_users', array('turnitin_uid'=>$data->tiiuserid))) {
@@ -131,9 +132,18 @@ class restore_turnitintool_activity_structure_step extends restore_activity_stru
             $DB->insert_record('turnitintool_users',$tiiuser);
         }
 
-        $data->submission_hash = $data->userid.'_'.$data->turnitintoolid.'_'.$data->submission_part;
-        $newitemid = $DB->insert_record('turnitintool_submissions', $data);
-        $this->set_mapping('turnitintool_submissions', $oldid, $newitemid);
+        // Check if this hash already exists.
+        if ($check_hash = $DB->get_record('turnitintool_submissions', array('submission_hash' => $data->submission_hash))) {
+            // Update the row/grade if this submission is the most recent submission.
+            if ($check_hash->submission_modified >= $data->submission_modified) {
+                $data->id = $check_hash->id;
+                $DB->update_record('turnitintool_submissions', $data);
+            }
+        } else {
+            // Insert the submission as we have a unique hash.
+            $newitemid = $DB->insert_record('turnitintool_submissions', $data);
+            $this->set_mapping('turnitintool_submissions', $oldid, $newitemid);
+        }
     }
 
     protected function process_turnitintool_comments($data) {
