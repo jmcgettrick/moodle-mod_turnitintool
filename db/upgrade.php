@@ -577,7 +577,6 @@ function xmldb_turnitintool_upgrade($oldversion) {
             $update->submission_hash = turnitintool_genUuid();
 
             $DB->update_record('turnitintool_submissions', $update);
-            //$DB->execute("UPDATE ".$CFG->prefix."turnitintool_submissions SET submission_hash = '".$submission_hash."' WHERE id = ".$duplicate->id."");
         }
     }
 
