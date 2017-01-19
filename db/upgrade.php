@@ -4,6 +4,8 @@
  * @copyright 2012 Turnitin
  */
 
+require_once($CFG->dirroot."/mod/turnitintool/lib.php");
+
 function xmldb_turnitintool_upgrade($oldversion) {
 
     global $CFG, $THEME, $DB, $OUTPUT;
@@ -559,6 +561,23 @@ function xmldb_turnitintool_upgrade($oldversion) {
         // Add hash as key after update.
         $key = new xmldb_key('submission_hash', XMLDB_KEY_UNIQUE, array('submission_hash'));
         $dbman->add_key($table, $key);
+    }
+
+    if ($result && $oldversion < 2017012001) {
+        // Get a list of pre-existing duplicate rows.
+        $query = "SELECT id FROM ".$CFG->prefix."turnitintool_submissions WHERE submission_hash = id";
+        $duplicates = $DB->get_records_sql($query, array('turnitintool'));
+
+        // Change the hash for pre-existing duplicates to use a UUID.
+        foreach ($duplicates as $duplicate) {
+            $submission_hash = turnitintool_genUuid();
+
+            $update = new stdClass();
+            $update->id = $duplicate->id;
+            $update->submission_hash = turnitintool_genUuid();
+
+            $DB->update_record('turnitintool_submissions', $update);
+        }
     }
 
     return $result;
