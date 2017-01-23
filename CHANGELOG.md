@@ -3,7 +3,7 @@
 
 - Replaced README.txt file with installation instructions to provide better guidance.
 - Fixes:
-    Fixed an issue with duplicate submission rows showing in the assignment inbox, removing the potential for duplicated grades being added.
+    - Fixed an issue with duplicate submission rows showing in the assignment inbox, removing the potential for duplicated grades being added.
 
 ---
 
