@@ -8,7 +8,7 @@ if (!isset($plugin)) {
 	$plugin = new StdClass();
 }
 
-$plugin->version  = 2016122101;  // The current module version (Date: YYYYMMDDXX)
+$plugin->version  = 2017012001;  // The current module version (Date: YYYYMMDDXX)
 $plugin->release   = "2.6+";
 $plugin->component = 'mod_turnitintool';
 $plugin->maturity  = MATURITY_STABLE;

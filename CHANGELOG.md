@@ -1,40 +1,51 @@
-Moodle Direct V1 Release Notes
-------------------------------------------------------------------------------------
-Date:       2016-December-21
-Release:    v2016122101
+### Date:       2017-January-20
+### Release:    v2017012001
+
+- Replaced README.txt file with installation instructions to provide better guidance.
+- Fixes:
+    - Fixed an issue with duplicate submission rows showing in the assignment inbox, removing the potential for duplicated grades being added.
+
+---
+
+### Date:       2016-December-21
+### Release:    v2016122101
 
 - Fixes:
     - Changed the language codes to correctly recognise Simplified Chinese in Moodle.
     - Pass the correct Simplified Chinese language code to Turnitin.
 
-####################################################################################
-Date:       2016-Oct-27
-Release:    v2016102701
+---
+
+### Date:       2016-Oct-27
+### Release:    v2016102701
 
 - Fixes:
     Fixed an issue from the previous release to do with the Moodle disclaimer setting.
 
-####################################################################################
-Date:       2016-Oct-12
-Release:    v2016101201
+---
+
+### Date:       2016-Oct-12
+### Release:    v2016101201
 
 - Changed the deprecated Events API to use the new Events 2 API.
 - Fixes:
     Fixed an issue with references to object() that would cause warnings to be displayed during debugging mode.
     Fixed an issue where a student could submit without agreeing to the disclaimer.
 
-####################################################################################
-Date:       2016-Mar-01
-Release:    v2016030101
+---
+
+### Date:       2016-Mar-01
+### Release:    v2016030101
 
 - Unused (pre Moodle 2.6) $module settings removed from version.php.
 - Fixes:
     Changed Advanced Turnitin Options form element ID to be unique.
     Fixed an issue where course restoration would break if a user's e-mail address has changed and user data is included.
 
-####################################################################################
-Date:       2015-Nov-26
-Release:    v2015030305
+---
+
+### Date:       2015-Nov-26
+### Release:    v2015030305
 
 - Added a note to highlight the 24 hour Originality Report delay for resubmissions.
 - Fixes:
@@ -42,9 +53,10 @@ Release:    v2015030305
     Assignment dates handled correctly in course reset.
     Removed undefined variable notice in inbox footer when debugging is enabled.
 
-####################################################################################
-Date:       2015-Sept-28
-Release:    v2015030304
+---
+
+### Date:       2015-Sept-28
+### Release:    v2015030304
 
 - Repository moved to Turnitin account in github.
 - Fixes:
@@ -52,9 +64,10 @@ Release:    v2015030304
     - Upload limits reworked to not show unlimited for students when uploading.
     - Warning when bulk downloading removed.
 
-####################################################################################
-Date:       2015-Aug-18
-Release:    v2015030303
+---
+
+### Date:       2015-Aug-18
+### Release:    v2015030303
 
 - Support for Moodle 2.9 including rewriting of submission workflow.
 - API URL changed for UK accounts.
@@ -62,9 +75,10 @@ Release:    v2015030303
     - Due date change no longer causes calendar event error.
     - Missing institutional check field added to Moodle database.
 
-####################################################################################
-Date:       2015-Jun-30
-Release:    v2015030302
+---
+
+### Date:       2015-Jun-30
+### Release:    v2015030302
 
 - Increase submission limit to Turnitin to 40Mb for newly created classes.
 - Updated Catalan language pack.
@@ -81,22 +95,25 @@ Release:    v2015030302
     - Include jQuery in page header on unlink users page.
     - Modulename lang string now a fixed value rather than relying on other string value.
 
-####################################################################################
-Date:       2014-Sept-08
-Release:    v2015030301
+---
+
+### Date:       2014-Sept-08
+### Release:    v2015030301
 
 - Fixes:
     > When enrolling all students, check student submit capability
 
-####################################################################################
-Date:       2014-Oct-31
-Release:    v2014103101
+---
+
+### Date:       2014-Oct-31
+### Release:    v2014103101
 
 - Added Czech language pack.
 
-####################################################################################
-Date:       2014-Sept-08
-Release:    v2013111404
+---
+
+### Date:       2014-Sept-08
+### Release:    v2013111404
 
 - Fixes:
     > Removed incorrect XML in install.xml
@@ -108,9 +125,10 @@ Release:    v2013111404
     > Changed suggested API URL to api.turnitin.com
     > Added default value for $params in turnitintool_delete_records_select
 
-####################################################################################
-Date:       2014-Apr-04
-Release:    v2013111403
+---
+
+### Date:       2014-Apr-04
+### Release:    v2013111403
 
 - Anonymous marking option is locked once a submission is made to any assignment part
 - Upgraded jQuery to 1.11.0
@@ -124,15 +142,17 @@ Release:    v2013111403
     > Added file check to identify submissions that are missing from disk/corrupt in
       Moodle and remove the associated submission
 
-####################################################################################
-Date:       2014-Feb-26
-Release:    v2013111402
+---
+
+### Date:       2014-February-26
+### Release:    v2013111402
 
 - Fixes for apostrophes in Moodle 1.9
 
-####################################################################################
-Date:       2013-Nov-14
-Release:    v2013111401
+---
+
+### Date:       2013-Nov-14
+### Release:    v2013111401
 
 - In anonymous marking assignments, inbox displays in part view until all
   parts have passed the post date.
@@ -147,9 +167,10 @@ Release:    v2013111401
     > Fixed default grade score
     > Fixed error when writing to logs
 
-####################################################################################
-Date:       2012-Dec-04
-Release:    v2012120401
+---
+
+### Date:       2012-Dec-04
+### Release:    v2012120401
 
 - Refactored Submission inbox views, jQuery filtering implemented to reduce database requests
 - Refactored 'Enroll All Students' and 'Refresh Submissions' to use ajax
@@ -157,48 +178,54 @@ Release:    v2012120401
 - Added more granular logging, now logging submission add and delete, assignment add, delete and update
 - Added a submission event handler (for Moodle 2+ only)
 
-####################################################################################
-Date:       2012-Nov-04
-Release:    v2012110401
+---
+
+### Date:       2012-Nov-04
+### Release:    v2012110401
 
 - Moodle Direct now requires PHP 5.0 server environments and above
 - Added performance improvements, specifically in-box refresh on large assignments
 - Added time-zone synchronisation improvements
 
-####################################################################################
-Date:       2012-Sept-24
-Release:    v2012092401
+---
+
+### Date:       2012-Sept-24
+### Release:    v2012092401
 
 - Added support for Translated Matching
 - Update icons with current Turnitin icons, update icons to allow multi version support
 - Added a config level mod_turnitintool component file browser when using Moodle 2.0+ for mod_turnitintool
 - Re-factored Unlink / Relink users page to paginate user data and reduce memory usage
 
-####################################################################################
-Date:       2011-Aug-18
-Release:    v2011081801
+---
+
+### Date:       2011-Aug-18
+### Release:    v2011081801
 
 - Refactored Back up and restore to allow duplication of TII classes and assignments
 - Added erater / ETS support
 - Added additional email notification options in the admin config screen
 
-####################################################################################
-Date:       2011-July-29
-Release:    v2011072901
+---
+
+### Date:       2011-July-29
+### Release:    v2011072901
 
 - Added support Bulk Download of Submissions in PDF and Original format
 - Added feature to download grade report XLS spreadsheet
 - Added Multi tutor management screen
 
-####################################################################################
-Date:       2010-Nov-19
-Release:    v2010111901
+---
+
+### Date:       2010-Nov-19
+### Release:    v2010111901
 
 - Added support for Moodle groups
 
-####################################################################################
-Date:       2010-Oct-26
-Release:    v2010102601
+---
+
+### Date:       2010-Oct-26
+### Release:    v2010102601
 
 - Added pagination to the inbox
 - Updated database fields and tables for Oracle support
@@ -210,9 +237,10 @@ Release:    v2010102601
     > Fixed issue where user's resubmissions where incorrectly tagged as anonymous
     > Fixed issue with incorrect / incomplete ordering of anonymous inbox
 
-####################################################################################
-Date:       2010-Sept-01
-Release:    v2010090101
+---
+
+### Date:       2010-Sept-01
+### Release:    v2010090101
 
 - Added various changes to add compatibility for Moodle 2.0
     > Refactored table output to support both Moodle 1.9 - 2.0
@@ -223,35 +251,40 @@ Release:    v2010090101
     > Moved images to 'pix' directory instead of 'images'
 - Added Backup and Restore for Moodle 1.9
 
-####################################################################################
-Date:       2010-June-19
-Release:    v2010061901
+---
+
+### Date:       2010-June-19
+### Release:    v2010061901
 
 - Added additional diagnostic logging
 - Added Authenticated Proxy support
 
-####################################################################################
-Date:       2010-June-12
-Release:    v2010061201
+---
+
+### Date:       2010-June-12
+### Release:    v2010061201
 
 - Refactored Inbox SQL queries
 
-####################################################################################
-Date:       2010-June-2
-Release:    v2010060201
+---
+
+### Date:       2010-June-2
+### Release:    v2010060201
 
 - Added support for UTF-8 intepretation of API return data
 
-####################################################################################
-Date:       2010-April-23
-Release:    v2010042301
+---
+
+### Date:       2010-April-23
+### Release:    v2010042301
 
 - Removed redundant assignment synching cron functionality
 - Now allows resubmission to the same paper ID
 
-####################################################################################
-Date:       2010-April-06
-Release:    v2010040601
+---
+
+### Date:       2010-April-06
+### Release:    v2010040601
 
 - Provides seamless integration into Turnitin using Moodle workflow
 - Uses an activity module so that we can update Turnitin independently of Moodle
