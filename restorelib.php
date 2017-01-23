@@ -278,6 +278,7 @@ function turnitintool_submissions_restore_mods($old_turnitintool_id, $new_turnit
         }
 
         //Add comments to the 'turnitin_comments' table in the db, so insert into turnitintool_submissions, check for DB type
+        $submission->submission_hash = $submission->userid.'_'.$submission->turnitintoolid.'_'.$submission->submission_part;
         if ($dbobject) {
             $newid = $DB->insert_record("turnitintool_submissions",$submission);
         } else {
