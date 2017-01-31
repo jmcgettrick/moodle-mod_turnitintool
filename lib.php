@@ -1478,121 +1478,12 @@ function turnitintool_delete_part($cm,$turnitintool,$partid) {
 function turnitintool_partform($cm,$part) {
     global $CFG, $OUTPUT;
 
-    $output='<form name="partform" method="POST" action="'.$CFG->wwwroot.'/mod/turnitintool/view.php'.'?id='.$cm->id.'&do=intro">'.PHP_EOL;
+    require_once('classes/forms/part_form.php');
 
-    $element=new MoodleQuickForm_hidden('submitted');
-    $element->setValue($part->id);
-    $output.=$element->toHTML().PHP_EOL;
+    //Instantiate part form
+    $part_form = new part_form($CFG->wwwroot.'/mod/turnitintool/view.php'.'?id='.$cm->id.'&do=intro', array('part' => $part), 'post', '', array("id" => "part_form"));
 
-    $table = new stdClass();
-    $table->width='100%';
-    $table->id='uploadtableid';
-    $table->class='uploadtable';
-
-    // Part Name Field
-    unset($cells);
-    $cells[0] = new stdClass();
-    $cells[0]->data=get_string('partname','turnitintool');
-    $cells[0]->class='cell c0';
-    $attr=array('class'=>"formwide");
-    $element=new MoodleQuickForm_text('partname',null,$attr);
-    $element->setValue($part->partname);
-    $cells[1] = new stdClass();
-    $cells[1]->data=$element->toHTML();
-    $cells[1]->class='cell c1';
-    $table->rows[0] = new stdClass();
-    $table->rows[0]->cells=$cells;
-
-    $dateoptions=array('startyear' => date( 'Y', strtotime( '-6 years' )), 'stopyear' => date( 'Y', strtotime( '+6 years' )),
-                    'timezone' => 99, 'applydst' => true, 'step' => 1, 'optional' => false);
-
-    // Part Start Date
-    unset($cells);
-    $cells[0] = new stdClass();
-    $cells[0]->data=get_string('dtstart','turnitintool');
-    $cells[0]->class='cell c0';
-    $element=new MoodleQuickForm_date_time_selector('dtstart',null,$dateoptions);
-    $date = array('hour'=>userdate($part->dtstart,'%H'),
-                  'minute'=>userdate($part->dtstart,'%M'),
-                  'day'=>userdate($part->dtstart,'%d'),
-                  'month'=>userdate($part->dtstart,'%m'),
-                  'year'=>userdate($part->dtstart,'%Y')
-                  );
-    $element->setValue($date);
-    $cells[1] = new stdClass();
-    $cells[1]->data=$element->toHTML();
-    $cells[1]->class='cell c1';
-    $table->rows[1] = new stdClass();
-    $table->rows[1]->cells=$cells;
-
-    // Part Due Date
-    unset($cells);
-    $cells[0] = new stdClass();
-    $cells[0]->data=get_string('dtdue','turnitintool');
-    $cells[0]->class='cell c0';
-    $element=new MoodleQuickForm_date_time_selector('dtdue',null,$dateoptions);
-    $date = array('hour'=>userdate($part->dtdue,'%H'),
-                  'minute'=>userdate($part->dtdue,'%M'),
-                  'day'=>userdate($part->dtdue,'%d'),
-                  'month'=>userdate($part->dtdue,'%m'),
-                  'year'=>userdate($part->dtdue,'%Y')
-                  );
-    $element->setValue($date);
-    $cells[1] = new stdClass();
-    $cells[1]->data=$element->toHTML();
-    $cells[1]->class='cell c1';
-    $table->rows[2] = new stdClass();
-    $table->rows[2]->cells=$cells;
-
-    // Part Post Date
-    unset($cells);
-    $cells[0] = new stdClass();
-    $cells[0]->data=get_string('dtpost','turnitintool');
-    $cells[0]->class='cell c0';
-    $element=new MoodleQuickForm_date_time_selector('dtpost',null,$dateoptions);
-    $date = array('hour'=>userdate($part->dtpost,'%H'),
-                  'minute'=>userdate($part->dtpost,'%M'),
-                  'day'=>userdate($part->dtpost,'%d'),
-                  'month'=>userdate($part->dtpost,'%m'),
-                  'year'=>userdate($part->dtpost,'%Y')
-                  );
-    $element->setValue($date);
-    $cells[1] = new stdClass();
-    $cells[1]->data=$element->toHTML();
-    $cells[1]->class='cell c1';
-    $table->rows[3] = new stdClass();
-    $table->rows[3]->cells=$cells;
-
-    // Part Max Marks
-    unset($cells);
-    $cells[0] = new stdClass();
-    $cells[0]->data=get_string('maxmarks','turnitintool');
-    $cells[0]->class='cell c0';
-    $element=new MoodleQuickForm_text('maxmarks');
-    $element->setValue($part->maxmarks);
-    $cells[1] = new stdClass();
-    $cells[1]->data=$element->toHTML();
-    $cells[1]->class='cell c1';
-    $table->rows[4] = new stdClass();
-    $table->rows[4]->cells=$cells;
-
-    // Submit / Cancel
-    unset($cells);
-    $cells[0] = new stdClass();
-    $cells[0]->data='&nbsp;';
-    $cells[0]->class='cell c0';
-    $attr=array('onclick'=>"location.href='".$CFG->wwwroot."/mod/turnitintool/view.php?id=".$cm->id."';");
-    $element=new MoodleQuickForm_button('cancel','Cancel',$attr);
-    $cells[1] = new stdClass();
-    $cells[1]->data=$element->toHTML();
-    $element=new MoodleQuickForm_submit('submit','Submit');
-    $cells[1]->data.=$element->toHTML();
-    $cells[1]->class='cell c1';
-    $table->rows[5] = new stdClass();
-    $table->rows[5]->cells=$cells;
-
-    $output.=turnitintool_print_table($table,true);
-    $output.='</form>'.PHP_EOL;
+    $output = $part_form->render();
 
     return $output;
 }
@@ -7363,7 +7254,7 @@ function turnitintool_print_table($table, $return=false) {
             $output.="\t</tr>\n";
         }
     }
-    $output.="$body_ct</table><br /><br />\n";
+    $output.="$body_ct</table>\n";
     if ($return) {
         return $output;
     } else {

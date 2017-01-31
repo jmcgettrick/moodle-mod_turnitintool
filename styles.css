@@ -552,3 +552,15 @@ button {
     padding: 10px;
     margin-bottom: 16px;
 }
+
+#partsummary {
+    margin: 0 auto;
+}
+
+#id_partname {
+    min-width: 418px;
+}
+
+.form-group.boldlabel .col-md-3 {
+    font-weight: bold;
+}
