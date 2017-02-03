@@ -1510,7 +1510,7 @@ function turnitintool_introduction($cm,$turnitintool,$notice='') {
     $table = new stdClass();
     $table->width='100%';
     $table->id='uploadtableid';
-    $table->class='uploadtable';
+    $table->class='introtable';
 
     unset($cells);
     $cells[0] = new stdClass();

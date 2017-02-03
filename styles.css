@@ -537,6 +537,11 @@ button {
     float: left;
 }
 
+#turnitintool_style .introtable .c0 {
+    font-weight: bold;
+    width: 26%;
+}
+
 #upload_error {
     margin-bottom: 17px;
     width: 100%;
@@ -553,7 +558,7 @@ button {
     margin-bottom: 16px;
 }
 
-#partsummary {
+#partsummary, #introduction {
     margin: 0 auto;
 }
 
