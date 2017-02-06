@@ -537,6 +537,11 @@ button {
     float: left;
 }
 
+#turnitintool_style .introtable .c0 {
+    font-weight: bold;
+    width: 26%;
+}
+
 #upload_error {
     margin-bottom: 17px;
     width: 100%;
@@ -551,4 +556,16 @@ button {
     background: #bbe6ff;
     padding: 10px;
     margin-bottom: 16px;
+}
+
+#partsummary, #introduction {
+    margin: 0 auto;
+}
+
+#id_partname {
+    min-width: 418px;
+}
+
+.form-group.boldlabel .col-md-3 {
+    font-weight: bold;
 }
