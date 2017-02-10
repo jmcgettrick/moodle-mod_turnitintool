@@ -296,7 +296,7 @@ turnitintool_header($cm,
         "",
         "",
         true,
-        update_module_button($cm->id, $course->id, $strturnitintool),
+        "",
         navmenu($course)
 );
 } else {
@@ -309,7 +309,7 @@ turnitintool_header($cm,
         "",
         "",
         true,
-        update_module_button($cm->id, $course->id, $strturnitintool)
+        ""
 );
 }
 

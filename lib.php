@@ -7296,7 +7296,6 @@ function turnitintool_header($cm,$course,$url,$title='', $heading='', $navigatio
             $PAGE->navbar->add($course->shortname, new moodle_url($CFG->wwwroot.'/course/view.php', array('id'=>$course->id)));
             $PAGE->navbar->add(get_string('modulenameplural', 'turnitintool'), new moodle_url($CFG->wwwroot.'/mod/turnitintool/index.php', array('id'=>$course->id)));
             $PAGE->navbar->add($title);
-            $PAGE->set_button(update_module_button($cmid, $courseid, get_string('modulename', 'turnitintool')));
         }
 
         $url_array = explode( '/mod/turnitintool', $url, 2 );
