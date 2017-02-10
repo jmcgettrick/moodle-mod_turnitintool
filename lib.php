@@ -7303,7 +7303,8 @@ function turnitintool_header($cm,$course,$url,$title='', $heading='', $navigatio
         $PAGE->set_url($url);
         $PAGE->set_title($title);
         $PAGE->set_heading($heading);
-
+        $PAGE->force_settings_menu(true);
+        $PAGE->set_context(context_module::instance($cm->id));
         if ($return) {
             return $OUTPUT->header();
         } else {
