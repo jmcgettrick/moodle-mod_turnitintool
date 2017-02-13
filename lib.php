@@ -1515,7 +1515,7 @@ function turnitintool_introduction($cm,$turnitintool,$notice='') {
     unset($cells);
     $cells[0] = new stdClass();
     $cells[0]->data=get_string('turnitintoolname', 'turnitintool');
-    $cells[0]->class='cell c0';
+    $cells[0]->class='cell c0 right_align';
     $cells[1] = new stdClass();
     $cells[1]->data=$turnitintool->name;
     $cells[1]->class='cell c1';
@@ -1550,7 +1550,7 @@ function turnitintool_introduction($cm,$turnitintool,$notice='') {
     unset($cells);
     $cells[0] = new stdClass();
     $cells[0]->data=get_string('turnitintoolintro', 'turnitintool');
-    $cells[0]->class='cell c0';
+    $cells[0]->class='cell c0 right_align';
     $cells[1] = new stdClass();
     $cells[1]->data=$intro;
     $cells[1]->class='cell c1';
@@ -1562,7 +1562,7 @@ function turnitintool_introduction($cm,$turnitintool,$notice='') {
         unset($cells);
         $cells[0] = new stdClass();
         $cells[0]->data=get_string('turnitintutors','turnitintool');
-        $cells[0]->class='cell c0';
+        $cells[0]->class='cell c0 right_align';
         $cells[1] = new stdClass();
         $cells[1]->data='<a href="'.$CFG->wwwroot.'/mod/turnitintool/view.php?id='.$cm->id.'&do=tutors" title="'.
                 get_string('edit','turnitintool').'"><img src="pix/user-group-edit.png" class="tiiicons" alt="'.get_string('edit','turnitintool').'" /></a>';
@@ -7304,10 +7304,12 @@ function turnitintool_header($cm,$course,$url,$title='', $heading='', $navigatio
         $PAGE->set_title($title);
         $PAGE->set_heading($heading);
 
-        // Settings required for the edit cog to appear.
-        $PAGE->set_cm($cm);
-        $PAGE->force_settings_menu(true);
-        $PAGE->set_context(context_module::instance($cm->id));
+        // Settings required for the edit cog to appear in boost theme.
+        if ($CFG->theme == "boost") {
+            $PAGE->set_cm($cm);
+            $PAGE->force_settings_menu(true);
+            $PAGE->set_context(context_module::instance($cm->id));
+        }
 
         if ($return) {
             return $OUTPUT->header();
