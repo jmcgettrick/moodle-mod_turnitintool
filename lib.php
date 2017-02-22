@@ -7296,6 +7296,15 @@ function turnitintool_header($cm,$course,$url,$title='', $heading='', $navigatio
             $PAGE->navbar->add($course->shortname, new moodle_url($CFG->wwwroot.'/course/view.php', array('id'=>$course->id)));
             $PAGE->navbar->add(get_string('modulenameplural', 'turnitintool'), new moodle_url($CFG->wwwroot.'/mod/turnitintool/index.php', array('id'=>$course->id)));
             $PAGE->navbar->add($title);
+
+            // Set the context to ensure the edit assignment links appear in non-Boost themes.
+            $PAGE->set_cm($cm);
+            $PAGE->set_context(context_module::instance($cm->id));
+
+            // Setting required for the edit cog to appear in boost theme.
+            if ($CFG->theme == "boost") {
+                $PAGE->force_settings_menu(true);
+            }
         }
 
         $url_array = explode( '/mod/turnitintool', $url, 2 );
@@ -7303,13 +7312,6 @@ function turnitintool_header($cm,$course,$url,$title='', $heading='', $navigatio
         $PAGE->set_url($url);
         $PAGE->set_title($title);
         $PAGE->set_heading($heading);
-
-        // Settings required for the edit cog to appear in boost theme.
-        if ($CFG->theme == "boost") {
-            $PAGE->set_cm($cm);
-            $PAGE->force_settings_menu(true);
-            $PAGE->set_context(context_module::instance($cm->id));
-        }
 
         if ($return) {
             return $OUTPUT->header();

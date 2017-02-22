@@ -155,12 +155,7 @@ button {
 #turnitintool_style .submissionTable .error {
     border: 1px solid red;
 }
-#turnitintool_style .submissionText {
-    height: 140px;
-    width: 80%;
-    font-family: inherit;
-    font-size: 85%;
-}
+
 #turnitintool_style .centertext {
     text-align: center;
 }
@@ -469,6 +464,14 @@ button {
     position: relative;
     top: 2px;
 }
+
+
+#turnitintool_style #unlink_wrapper .dt_page {
+    margin-bottom: 20px;
+}
+
+
+
 #turnitintool_style .dataTables_info {
     text-align: center;
 }
@@ -577,4 +580,10 @@ button {
 
 .form-group.boldlabel .col-md-3 {
     font-weight: bold;
+}
+
+#turnitintool_style #id_submissiontext,
+#turnitintool_style #submitbox .submissionText {
+    width: 600px;
+    height: 300px;
 }
