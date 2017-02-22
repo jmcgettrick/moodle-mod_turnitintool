@@ -469,6 +469,14 @@ button {
     position: relative;
     top: 2px;
 }
+
+
+#turnitintool_style #unlink_wrapper .dt_page {
+    margin-bottom: 20px;
+}
+
+
+
 #turnitintool_style .dataTables_info {
     text-align: center;
 }
