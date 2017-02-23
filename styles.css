@@ -583,7 +583,8 @@ button {
 }
 
 #turnitintool_style #id_submissiontext,
-#turnitintool_style #submitbox .submissionText {
+#turnitintool_style #submitbox .submissionText,
+#turnitintool_style .uploadtable .submissionText {
     width: 600px;
     height: 300px;
 }
