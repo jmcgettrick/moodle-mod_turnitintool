@@ -189,7 +189,6 @@ if ((!$v1_assignment->migrated) && ($CFG->turnitin_default_enablemigrationtool) 
             foreach ($v1_part_submissions as $v1_part_submission) {
                 $v1_part_submission->turnitintooltwoid = $turnitintooltwoid;
                 $v1_part_submission->submission_part = $v2_part_id;
-                $v1_part_submission->migration_gradebook = 1;
 
                 // WILL NEED TO REJIG THIS IN FINAL VERSION.
                 // We can't leave as is, otherwise we could have a clash with existing V2 assignment hashes.
