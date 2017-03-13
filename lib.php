@@ -4396,7 +4396,7 @@ function turnitintool_update_form_grades($cm,$turnitintool,$post) {
  */
 function turnitintool_update_all_report_scores($cm,$turnitintool,$trigger,$loaderbar=null) {
 
-    global $USER,$CFG,$notice;
+    global $USER,$CFG,$DB,$notice;
     $param_type=optional_param('type',null,PARAM_CLEAN);
     $param_do=optional_param('do',null,PARAM_CLEAN);
     $param_ob=optional_param('ob',null,PARAM_CLEAN);
@@ -4571,7 +4571,7 @@ function turnitintool_update_all_report_scores($cm,$turnitintool,$trigger,$loade
                             $insert->id=$ids[$key]->id;
                             $insertid=turnitintool_update_record('turnitintool_submissions',$insert);
                         } else {
-                            if ($check_hash = turnitintool_get_records_select('turnitintool_submissions', "submission_hash='".$insert->submission_hash."'")) {
+                            if ($check_hash = $DB->get_record('turnitintool_submissions', array('submission_hash' => $insert->submission_hash))) {
                                 $insert->id = $check_hash->id;
                                 $insertid=turnitintool_update_record('turnitintool_submissions',$insert);
                             } else {
@@ -5456,7 +5456,7 @@ function turnitintool_checkforsubmission($cm,$turnitintool,$partid,$userid) {
  * @return array result and message
  */
 function turnitintool_dofileupload_post_29($cm,$turnitintool,$userid,$post) {
-    global $USER,$CFG;
+    global $USER,$DB,$CFG;
     $param_do=optional_param('do',null,PARAM_CLEAN);
 
     $checksubmission=turnitintool_checkforsubmission($cm,$turnitintool,$post['submissionpart'],$userid);
@@ -5504,7 +5504,7 @@ function turnitintool_dofileupload_post_29($cm,$turnitintool,$userid,$post) {
         // Prevent duplication in issues where the TII servers may be inaccessible.
         // Check submission_hash doesn't exist already.
         $submitobject->submission_hash = $submitobject->userid.'_'.$submitobject->turnitintoolid.'_'.$submitobject->submission_part;
-        if ($check_hash = turnitintool_get_records_select('turnitintool_submissions', "submission_hash='".$submitobject->submission_hash."'")) {
+        if ($check_hash = $DB->get_record('turnitintool_submissions', array('submission_hash' => $insert->submission_hash))) {
             $submitobject->id = $check_hash->id;
             if (!turnitintool_update_record('turnitintool_submissions',$submitobject)) {
                 turnitintool_print_error('submissionupdateerror','turnitintool',NULL,NULL,__FILE__,__LINE__);
@@ -5587,7 +5587,7 @@ function turnitintool_dofileupload_post_29($cm,$turnitintool,$userid,$post) {
  * @return boolean Submission was found / not found
  */
 function turnitintool_dofileupload_pre_29($cm,$turnitintool,$userid,$post) {
-    global $USER,$CFG;
+    global $USER,$DB,$CFG;
     $param_do=optional_param('do',null,PARAM_CLEAN);
 
     $error=false;
@@ -5671,7 +5671,7 @@ function turnitintool_dofileupload_pre_29($cm,$turnitintool,$userid,$post) {
             // Prevent duplication in issues where the TII servers may be inaccessible.
             // Check submission_hash doesn't exist already.
             $submitobject->submission_hash = $submitobject->userid.'_'.$submitobject->turnitintoolid.'_'.$submitobject->submission_part;
-            if ($check_hash = turnitintool_get_records_select('turnitintool_submissions', "submission_hash='".$submitobject->submission_hash."'")) {
+            if ($check_hash = $DB->get_record('turnitintool_submissions', array('submission_hash' => $insert->submission_hash))) {
                 $submitobject->id = $check_hash->id;
                 if (!turnitintool_update_record('turnitintool_submissions',$submitobject)) {
                     turnitintool_print_error('submissionupdateerror','turnitintool',NULL,NULL,__FILE__,__LINE__);
@@ -5748,7 +5748,7 @@ function turnitintool_dofileupload_pre_29($cm,$turnitintool,$userid,$post) {
  * @return boolean Submission was found / not found
  */
 function turnitintool_dotextsubmission($cm,$turnitintool,$userid,$post) {
-    global $USER,$CFG;
+    global $USER,$DB,$CFG;
     $param_do=optional_param('do',null,PARAM_CLEAN);
 
     $error=false;
@@ -5833,7 +5833,7 @@ function turnitintool_dotextsubmission($cm,$turnitintool,$userid,$post) {
             // Prevent duplication in issues where the TII servers may be inaccessible.
             // Check submission_hash doesn't exist already.
             $submitobject->submission_hash = $submitobject->userid.'_'.$submitobject->turnitintoolid.'_'.$submitobject->submission_part;
-            if ($check_hash = turnitintool_get_records_select('turnitintool_submissions', "submission_hash='".$submitobject->submission_hash."'")) {
+            if ($check_hash = $DB->get_record('turnitintool_submissions', array('submission_hash' => $insert->submission_hash))) {
                 $submitobject->id = $check_hash->id;
                 if (!turnitintool_update_record('turnitintool_submissions',$submitobject)) {
                     turnitintool_print_error('submissionupdateerror','turnitintool',NULL,NULL,__FILE__,__LINE__);
