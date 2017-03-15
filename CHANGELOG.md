@@ -1,3 +1,11 @@
+### Date:       2017-March-XX
+### Release:    v201703XXXX
+
+- Resolved bug affecting assignment inbox access
+
+**Resolved bug affecting assignment inbox access** - If a student had two submissions for one assignment part in Turnitin, the Moodle assignment inbox would display an alert with the HTML of an error page.. We resolved this by ensuring that the system only saves one submission record per student per assignment when refreshing submissions from Turnitin.
+
+
 ### Date:       2017-January-20
 ### Release:    v2017012001
 
