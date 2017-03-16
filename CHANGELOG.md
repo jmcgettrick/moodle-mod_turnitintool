@@ -1,5 +1,5 @@
-### Date:       2017-March-XX
-### Release:    v201703XXXX
+### Date:       2017-March-16
+### Release:    v2017031601
 
 - Resolved bug affecting assignment inbox access
 
