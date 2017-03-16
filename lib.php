@@ -5504,7 +5504,7 @@ function turnitintool_dofileupload_post_29($cm,$turnitintool,$userid,$post) {
         // Prevent duplication in issues where the TII servers may be inaccessible.
         // Check submission_hash doesn't exist already.
         $submitobject->submission_hash = $submitobject->userid.'_'.$submitobject->turnitintoolid.'_'.$submitobject->submission_part;
-        if ($check_hash = $DB->get_record('turnitintool_submissions', array('submission_hash' => $insert->submission_hash))) {
+        if ($check_hash = $DB->get_record('turnitintool_submissions', array('submission_hash' => $submitobject->submission_hash))) {
             $submitobject->id = $check_hash->id;
             if (!turnitintool_update_record('turnitintool_submissions',$submitobject)) {
                 turnitintool_print_error('submissionupdateerror','turnitintool',NULL,NULL,__FILE__,__LINE__);
@@ -5671,7 +5671,7 @@ function turnitintool_dofileupload_pre_29($cm,$turnitintool,$userid,$post) {
             // Prevent duplication in issues where the TII servers may be inaccessible.
             // Check submission_hash doesn't exist already.
             $submitobject->submission_hash = $submitobject->userid.'_'.$submitobject->turnitintoolid.'_'.$submitobject->submission_part;
-            if ($check_hash = $DB->get_record('turnitintool_submissions', array('submission_hash' => $insert->submission_hash))) {
+            if ($check_hash = $DB->get_record('turnitintool_submissions', array('submission_hash' => $submitobject->submission_hash))) {
                 $submitobject->id = $check_hash->id;
                 if (!turnitintool_update_record('turnitintool_submissions',$submitobject)) {
                     turnitintool_print_error('submissionupdateerror','turnitintool',NULL,NULL,__FILE__,__LINE__);
@@ -5833,7 +5833,7 @@ function turnitintool_dotextsubmission($cm,$turnitintool,$userid,$post) {
             // Prevent duplication in issues where the TII servers may be inaccessible.
             // Check submission_hash doesn't exist already.
             $submitobject->submission_hash = $submitobject->userid.'_'.$submitobject->turnitintoolid.'_'.$submitobject->submission_part;
-            if ($check_hash = $DB->get_record('turnitintool_submissions', array('submission_hash' => $insert->submission_hash))) {
+            if ($check_hash = $DB->get_record('turnitintool_submissions', array('submission_hash' => $submitobject->submission_hash))) {
                 $submitobject->id = $check_hash->id;
                 if (!turnitintool_update_record('turnitintool_submissions',$submitobject)) {
                     turnitintool_print_error('submissionupdateerror','turnitintool',NULL,NULL,__FILE__,__LINE__);
