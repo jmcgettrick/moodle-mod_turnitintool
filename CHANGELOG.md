@@ -1,10 +1,24 @@
 ### Date:       2017-March-16
 ### Release:    v2017031601
 
-- Resolved bug affecting assignment inbox access
+- Resolved a bug affecting assignment inbox access
+- Compatibility issues with Moodle 3.2 Boost theme
+- Resolved error message when attempting to edit an assignment
+- Fixed various user interface issues
+- Fixed a bug causing deprecation errors 
+
 
 **Resolved bug affecting assignment inbox access** - If a student had two submissions for one assignment part in Turnitin, the Moodle assignment inbox would display an alert with the HTML of an error page.. We resolved this by ensuring that the system only saves one submission record per student per assignment when refreshing submissions from Turnitin.
 
+**Compatibility issues with Moodle 3.2 Boost theme** - As we did not previously support V1 in Moodle 3.2, users reported a difficult user experience. This release now sees us supporting V1 in Moodle 3.2.
+
+**Resolved error message when attempting to edit an assignment** - Moodle 3.2 was throwing an exception error message related to MoodleQuickForm: Coding error detected, it must be fixed by a programmer: You can not call createFormElement() on the group element that was not yet added to a form. This occurred after clicking the Edit button to modify an assignment part. We have managed to fix this issue, allowing V1 users to successfully edit their assignments in 3.2.
+
+**Fixed various user interface issues** - The significant difference between Moodle 3.1 and 3.2 resulted in our V1 plugin no longer matching the design of Moodle 3.2. Because of this, some of the user interface required minor correction. Moodle V1 should now appear a little less unkempt.
+
+**Fixed a bug causing deprecation errors** - As the module button was deprecated, this caused error messages to appear in Moodle 3.2. To resolve this, the button has been removed and replaced with a newer editing button. The header now loads in a new theme and the user has the relevant options available with both Core and Boost themes selected.
+
+---
 
 ### Date:       2017-January-20
 ### Release:    v2017012001
