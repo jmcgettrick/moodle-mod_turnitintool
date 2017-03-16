@@ -61,6 +61,8 @@ if ($id) {
 
 require_login($course->id);
 
+$PAGE->set_pagelayout('standard');
+
 if (isset($PAGE) AND is_callable(array($PAGE->requires, 'js'))) { // Are we using new moodle or old?
     if (!is_callable(array('page_requirements_manager', 'jquery'))) {
         $jsurl = new moodle_url($CFG->wwwroot.'/mod/turnitintool/scripts/jquery-1.11.0.min.js');
@@ -296,7 +298,7 @@ turnitintool_header($cm,
         "",
         "",
         true,
-        update_module_button($cm->id, $course->id, $strturnitintool),
+        "",
         navmenu($course)
 );
 } else {
@@ -309,7 +311,7 @@ turnitintool_header($cm,
         "",
         "",
         true,
-        update_module_button($cm->id, $course->id, $strturnitintool)
+        ""
 );
 }
 

@@ -155,12 +155,7 @@ button {
 #turnitintool_style .submissionTable .error {
     border: 1px solid red;
 }
-#turnitintool_style .submissionText {
-    height: 140px;
-    width: 80%;
-    font-family: inherit;
-    font-size: 85%;
-}
+
 #turnitintool_style .centertext {
     text-align: center;
 }
@@ -469,6 +464,14 @@ button {
     position: relative;
     top: 2px;
 }
+
+
+#turnitintool_style #unlink_wrapper .dt_page {
+    margin-bottom: 20px;
+}
+
+
+
 #turnitintool_style .dataTables_info {
     text-align: center;
 }
@@ -537,6 +540,11 @@ button {
     float: left;
 }
 
+#turnitintool_style .introtable .c0 {
+    font-weight: bold;
+    width: 25%;
+}
+
 #upload_error {
     margin-bottom: 17px;
     width: 100%;
@@ -551,4 +559,32 @@ button {
     background: #bbe6ff;
     padding: 10px;
     margin-bottom: 16px;
+}
+
+#partsummary, #introduction {
+    margin: 0 auto;
+}
+
+#introduction {
+    margin-bottom: 30px;
+}
+
+#id_partname {
+    min-width: 418px;
+}
+
+.right_align {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.form-group.boldlabel .col-md-3 {
+    font-weight: bold;
+}
+
+#turnitintool_style #id_submissiontext,
+#turnitintool_style #submitbox .submissionText,
+#turnitintool_style .uploadtable .submissionText {
+    width: 600px;
+    height: 300px;
 }
