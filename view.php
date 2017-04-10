@@ -71,14 +71,11 @@ if ((!$turnitintool->migrated) && ($CFG->turnitin_default_enablemigrationtool) &
     if ($module->value >= 2017012001) {
         include_once("../turnitintooltwo/classes/v1migration/v1migration.php");
         $v1migration = new v1migration($course->id, $turnitintool);
-        $migrate = $v1migration->migrate();
-        if ((int)$migrate > 0) {
-            // Redirect to the new V2 assignment.
-            redirect(new moodle_url('/mod/turnitintooltwo/view.php', array('id' => $migrate)));
-        }
+
+        // Display message asking if we should migrate.
+        $v1migration->asktomigrate($course->id, $turnitintool->id);
     }
 }
-
 /* END Migration Tool */
 
 $PAGE->set_pagelayout('standard');
