@@ -73,7 +73,7 @@ if ((!$turnitintool->migrated) && ($CFG->turnitin_default_enablemigrationtool) &
         $v1migration = new v1migration($course->id, $turnitintool);
 
         // Display message asking if we should migrate.
-        $v1migration->asktomigrate($course->id, $turnitintool->id);
+        echo $v1migration->asktomigrate($course->id, $turnitintool->id);
     }
 }
 /* END Migration Tool */
