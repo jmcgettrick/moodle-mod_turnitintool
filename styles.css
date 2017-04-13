@@ -588,3 +588,9 @@ button {
     width: 600px;
     height: 300px;
 }
+
+#migration_alert {
+    border-radius: 25px;
+    background: #FFF;
+    padding: 20px;
+}
