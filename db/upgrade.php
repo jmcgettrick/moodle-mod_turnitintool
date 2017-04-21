@@ -568,7 +568,7 @@ function xmldb_turnitintool_upgrade($oldversion) {
      * 
      * DON'T FORGET TO REMOVE THIS COMMENT ALSO.
      */
-    if ($result && $oldversion < 2017022401) {
+    if ($result && $oldversion < 2017042101) {
         if (is_callable(array($DB,'get_manager'))) {
             $dbman=$DB->get_manager();
             $table = new xmldb_table('turnitintool');
