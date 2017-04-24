@@ -63,19 +63,28 @@ require_login($course->id);
 
 /* START Migration Tool */
 
-// Check if Moodle Direct V2 is already installed.
-$module = $DB->get_record('config_plugins', array('plugin' => 'mod_turnitintooltwo', 'name' => 'version'));
+// Only display the popup once during this session, unless they view another assignment.
+$lastasked = (!isset($_SESSION["migrationtool"]["lastasked"])) ? 0 : $_SESSION["migrationtool"]["lastasked"];
+if ($lastasked != $turnitintool->id) {
 
-// If the assignment has not already been migrated, the migration tool is enabled and Moodle Direct V2 is installed with the latest version.
-if ((!$turnitintool->migrated) && ($CFG->turnitin_default_enablemigrationtool) && ($module)) {
-    if ($module->value >= 2017012001) {
-        include_once("../turnitintooltwo/classes/v1migration/v1migration.php");
-        $v1migration = new v1migration($course->id, $turnitintool);
+    // Prevent modal from appearing again for this assignment during this session.
+    $_SESSION["migrationtool"]["lastasked"] = $turnitintool->id;
 
-        // Display message asking if we should migrate.
-        echo $v1migration->asktomigrate($course->id, $turnitintool->id);
+    // Check if Moodle Direct V2 is already installed.
+    $module = $DB->get_record('config_plugins', array('plugin' => 'mod_turnitintooltwo', 'name' => 'version'));
+
+    // If the assignment has not already been migrated, the migration tool is enabled and Moodle Direct V2 is installed with the latest version.
+    if ((!$turnitintool->migrated) && ($CFG->turnitin_default_enablemigrationtool) && ($module)) {
+        if ($module->value >= 2017012001) {
+            include_once("../turnitintooltwo/classes/v1migration/v1migration.php");
+            $v1migration = new v1migration($course->id, $turnitintool);
+
+            // Display message asking if we should migrate.
+            echo $v1migration->asktomigrate($course->id, $turnitintool->id);
+        }
     }
 }
+
 /* END Migration Tool */
 
 $PAGE->set_pagelayout('standard');
