@@ -63,19 +63,28 @@ require_login($course->id);
 
 /* START Migration Tool */
 
-// Only display the popup once during this session, unless they view another assignment.
-$lastasked = (!isset($_SESSION["migrationtool"]["lastasked"])) ? 0 : $_SESSION["migrationtool"]["lastasked"];
-if ($lastasked != $turnitintool->id) {
+// Check if Moodle Direct V2 is already installed.
+$module = $DB->get_record('config_plugins', array('plugin' => 'mod_turnitintooltwo', 'name' => 'version'));
 
-    // Prevent modal from appearing again for this assignment during this session.
-    $_SESSION["migrationtool"]["lastasked"] = $turnitintool->id;
+// If the assignment has not already been migrated and Moodle Direct V2 is installed with the latest version.
+if ((!$turnitintool->migrated) && ($module) && ($module->value >= 2017042101)) {
 
-    // Check if Moodle Direct V2 is already installed.
-    $module = $DB->get_record('config_plugins', array('plugin' => 'mod_turnitintooltwo', 'name' => 'version'));
+    // Store data in a div that the JS can access for use in automatic migration.
+    global $PAGE;
+    $PAGE->requires->jquery_plugin('turnitintooltwo-migration_tool', 'mod_turnitintooltwo');
+    echo html_writer::tag('div', '', array('class' => 'hide', 'id' => 'migrate_type', 
+        'data-migratetype' => $CFG->turnitin_default_enablemigrationtool, 'data-courseid' => $course->id, 'data-turnitintoolid' => $turnitintool->id));
 
-    // If the assignment has not already been migrated, the migration tool is enabled and Moodle Direct V2 is installed with the latest version.
-    if ((!$turnitintool->migrated) && ($CFG->turnitin_default_enablemigrationtool) && ($module)) {
-        if ($module->value >= 2017012001) {
+    // If the migration tool is manual, we need to ask to migrate. Automatic migrations are performed on page load.
+    if ($CFG->turnitin_default_enablemigrationtool == 1) {
+
+        // Only display the popup once during this session, unless they view another assignment.
+        $lastasked = (!isset($_SESSION["migrationtool"]["lastasked"])) ? 0 : $_SESSION["migrationtool"]["lastasked"];
+        if ($lastasked != $turnitintool->id) {
+
+            // Prevent modal from appearing again for this assignment during this session.
+            $_SESSION["migrationtool"]["lastasked"] = $turnitintool->id;
+
             include_once("../turnitintooltwo/classes/v1migration/v1migration.php");
             $v1migration = new v1migration($course->id, $turnitintool);
 
