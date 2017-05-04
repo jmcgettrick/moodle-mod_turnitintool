@@ -68,20 +68,18 @@ $module = $DB->get_record('config_plugins', array('plugin' => 'mod_turnitintoolt
 
 // If the assignment has not already been migrated and Moodle Direct V2 is installed with the latest version.
 if ((!$turnitintool->migrated) && ($module) && ($module->value >= 2017042101)) {
+    $lastasked = (!isset($_SESSION["migrationtool"]["lastasked"])) ? 0 : $_SESSION["migrationtool"]["lastasked"];
 
     // Store data in a div that the JS can access for use in automatic migration.
     global $PAGE;
     $PAGE->requires->jquery_plugin('turnitintooltwo-migration_tool', 'mod_turnitintooltwo');
     echo html_writer::tag('div', '', array('class' => 'hide', 'id' => 'migrate_type', 
-        'data-migratetype' => $CFG->turnitin_default_enablemigrationtool, 'data-courseid' => $course->id, 'data-turnitintoolid' => $turnitintool->id));
+        'data-migratetype' => $CFG->turnitin_default_enablemigrationtool, 'data-courseid' => $course->id, 'data-turnitintoolid' => $turnitintool->id, 'data-lastasked' => $lastasked));
 
     // If the migration tool is manual, we need to ask to migrate. Automatic migrations are performed on page load.
     if ($CFG->turnitin_default_enablemigrationtool == 1) {
-
         // Only display the popup once during this session, unless they view another assignment.
-        $lastasked = (!isset($_SESSION["migrationtool"]["lastasked"])) ? 0 : $_SESSION["migrationtool"]["lastasked"];
         if ($lastasked != $turnitintool->id) {
-
             // Prevent modal from appearing again for this assignment during this session.
             $_SESSION["migrationtool"]["lastasked"] = $turnitintool->id;
 
