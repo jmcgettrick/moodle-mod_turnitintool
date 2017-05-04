@@ -70,7 +70,7 @@ $module = $DB->get_record('config_plugins', array('plugin' => 'mod_turnitintoolt
 $toolenabled = $DB->get_field('config_plugins', 'value', array('plugin' => 'turnitintooltwo', 'name' => 'enablemigrationtool'));
 
 // If the assignment has not already been migrated and Moodle Direct V2 is installed with the latest version.
-if ((!$turnitintool->migrated) && ($module) && ($module->value >= 2017042101) && $toolenabled > 0) {
+if ((!$turnitintool->migrated) && ($module) && ($module->value >= 2017042101) && (!empty($toolenabled))) {
     $lastasked = (!isset($_SESSION["migrationtool"]["lastasked"])) ? 0 : $_SESSION["migrationtool"]["lastasked"];
 
     // Store data in a div that the JS can access for use in automatic migration.
