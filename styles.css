@@ -594,3 +594,9 @@ button {
     background: #FFF;
     padding: 20px;
 }
+
+.migration_spinner {
+    display: block;
+    margin: 25px;
+    text-align: center;
+}
