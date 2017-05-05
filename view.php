@@ -62,7 +62,7 @@ if ($id) {
 require_login($course->id);
 
 /* START Migration Tool */
-unset($_SESSION["migrationtool"]["lastasked"]);
+
 // Check if Moodle Direct V2 is already installed.
 $module = $DB->get_record('config_plugins', array('plugin' => 'mod_turnitintooltwo', 'name' => 'version'));
 
