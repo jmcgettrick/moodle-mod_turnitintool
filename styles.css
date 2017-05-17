@@ -631,6 +631,7 @@ button {
     border: none;
     height: 40px;
     margin-right: 11px;
+    border-radius: 3px;
 }
 
 #migration_alert .btn-default {
@@ -647,4 +648,5 @@ button {
 #migration_alert .btn-default {
     box-shadow: none;
     height: 40px;
+    border-radius: 3px;
 }
