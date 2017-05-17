@@ -608,11 +608,13 @@ button {
     margin: 25px;
     text-align: center;
 }
-
 .migrationtitle {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 25px;
+}
+.migrationtoolinfo {
+    margin-bottom: 32px;
 }
 
 #migration_alert .btn-primary {
@@ -623,6 +625,12 @@ button {
 }
 #migration_alert .btn-primary:active {
     background: #003A69;
+}
+#migration_alert .btn-primary {
+    box-shadow: none;
+    border: none;
+    height: 40px;
+    margin-right: 11px;
 }
 
 #migration_alert .btn-default {
@@ -635,4 +643,8 @@ button {
 #migration_alert .btn-default:active {
     background: #E2F1FE;
     color: #003A69;
+}
+#migration_alert .btn-default {
+    box-shadow: none;
+    height: 40px;
 }
