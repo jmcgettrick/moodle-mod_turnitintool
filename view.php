@@ -74,7 +74,7 @@ if (has_capability('mod/turnitintool:grade', turnitintool_get_context('MODULE', 
     // If the assignment has not already been migrated and Moodle Direct V2 is installed with the latest version.
     if ((!$turnitintool->migrated) && ($module) && ($module->value >= 2017042101) && (!empty($toolenabled))) {
         $lastasked = (!isset($_SESSION["migrationtool"]["lastasked"])) ? 0 : $_SESSION["migrationtool"]["lastasked"];
-$lastasked = 0;
+
         // Store data in a div that the JS can access for use in automatic migration.
         global $PAGE;
         $PAGE->requires->jquery_plugin('turnitintooltwo-migration_tool', 'mod_turnitintooltwo');
