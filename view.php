@@ -193,7 +193,6 @@ if (has_capability('mod/turnitintool:grade', turnitintool_get_context('MODULE', 
             }
         }
     }
-    $param_update = null;
 }
 
 /* END Migration Tool */
