@@ -163,10 +163,12 @@ if (has_capability('mod/turnitintool:grade', turnitintool_get_context('MODULE', 
     // If the assignment has not already been migrated and Moodle Direct V2 is installed with the latest version.
     if ((!$turnitintool->migrated) && ($module) && ($module->value >= 2017042101) && (!empty($toolenabled))) {
 
-        // Refresh grades before migrating.        
-        $loaderbar = new turnitintool_loaderbarclass(2);
-        turnitintool_update_all_report_scores($cm,$turnitintool,1,$loaderbar);
-        $_SESSION["migrationtool"][$turnitintool->id]["gradesupdated"] = time();
+        // Refresh grades before migrating.
+        if (empty($_SESSION["migrationtool"][$turnitintool->id]["gradesupdated"])) {
+            $loaderbar = new turnitintool_loaderbarclass(2);
+            turnitintool_update_all_report_scores($cm,$turnitintool,1,$loaderbar);
+            $_SESSION["migrationtool"][$turnitintool->id]["gradesupdated"] = time();
+        }
 
         $lastasked = (!isset($_SESSION["migrationtool"]["lastasked"])) ? 0 : $_SESSION["migrationtool"]["lastasked"];
 
