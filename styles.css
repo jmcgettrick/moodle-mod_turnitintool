@@ -4,6 +4,7 @@
  *
  * Contains styles used with Moodle 2.0
  */
+
 #turnitintool_style,
 #turnitintool_style td,
 #turnitintool_style th {
@@ -587,4 +588,71 @@ button {
 #turnitintool_style .uploadtable .submissionText {
     width: 600px;
     height: 300px;
+}
+
+#migration_alert {
+    font-size: 14px;
+    border-radius: 3px;
+    background: #FFF;
+    padding: 25px;
+}
+#asktomigrate {
+    text-align: center;
+}
+.migration_spinner {
+    display: block;
+    margin: 25px;
+    text-align: center;
+}
+.migrationtitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+.migrationtoolinfo {
+    margin-bottom: 32px;
+}
+
+#migration_alert .btn-primary {
+    background: #0073D2;
+}
+#migration_alert .btn-primary:hover {
+    background: #00569E;
+}
+#migration_alert .btn-primary:active {
+    background: #003A69;
+}
+#migration_alert .btn-primary {
+    box-shadow: none;
+    border: none;
+    height: 40px;
+    margin-right: 11px;
+    border-radius: 3px;
+}
+
+#migration_alert .btn-default {
+    background: #FFFFFF;
+}
+#migration_alert .btn-default:hover {
+    color: #00569E;
+    background: #F0F8FE;
+}
+#migration_alert .btn-default:active {
+    background: #E2F1FE;
+    color: #003A69;
+}
+#migration_alert .btn-default {
+    box-shadow: none;
+    height: 40px;
+    border-radius: 3px;
+}
+#full-error {
+    border: 1px solid #702c2b;
+    padding: 8px;
+    background: #B94A48;
+    width: 99%;
+    text-align: center;
+    display: block;
+    margin-bottom: 6px;
+    color: #fff;
 }
