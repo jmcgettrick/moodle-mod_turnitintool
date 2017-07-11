@@ -1,5 +1,5 @@
 
-### Date:       2017-March-16
+### Date:       2017-July-10
 ### Release:    v2017071001
 
 - This release is for beta testers of the V1 to V2 Migration Tool. Please note that you will also need to update Moodle Direct V2 (v2017071001) in order for the Migration Tool to work.
