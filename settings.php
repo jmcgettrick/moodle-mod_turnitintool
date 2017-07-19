@@ -235,6 +235,5 @@ if ($ADMIN->fulltree) {
 
     $settings->add(new admin_setting_configselect('turnitin_default_excludequoted', get_string('excludequoted','turnitintool'),
                        '', 0, $ynoptions ));
-
 }
 /* ?> */

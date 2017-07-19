@@ -4498,7 +4498,7 @@ function turnitintool_update_all_report_scores($cm,$turnitintool,$trigger,$loade
                     $inserts=array();
                     foreach ($resultArray as $key => $value) {
 
-                        $insert=new object;
+                        $insert=new stdClass;
                         $insert->turnitintoolid=$turnitintool->id;
                         $insert->submission_part=$part->id;
                         $insert->submission_title=$value["title"];

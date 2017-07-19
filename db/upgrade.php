@@ -561,6 +561,22 @@ function xmldb_turnitintool_upgrade($oldversion) {
         }
     }
 
+    if ($result && $oldversion < 2017071901) {
+        if (is_callable(array($DB,'get_manager'))) {
+            $dbman=$DB->get_manager();
+            $table = new xmldb_table('turnitintool');
+            $field = new xmldb_field('migrated', XMLDB_TYPE_INTEGER, '1', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, 0, 'institution_check');
+            if (!$dbman->field_exists($table, $field)) {
+                $dbman->add_field($table, $field);
+            }
+        } else {
+            $table = new xmldb_table('turnitintool');
+            $field = new xmldb_field('migrated');
+            $field->setAttributes(XMLDB_TYPE_INTEGER, '1', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, null, null, 0, 'institution_check');
+            $result = $result && add_field($table, $field);
+        }
+    }
+
     return $result;
 }
 
