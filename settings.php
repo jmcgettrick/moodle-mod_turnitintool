@@ -221,6 +221,11 @@ if ($ADMIN->fulltree) {
     $settings->add(new admin_setting_configselect('turnitin_default_submitpapersto', get_string('submitpapersto','turnitintool'),
                        '', 1, $suboptions ));
 
+    $settings->add(new admin_setting_configselect('turnitin_default_submitpapersto',
+        get_string('submitpapersto', 'turnitintool').
+        $OUTPUT->help_icon('submitpapersto', 'turnitintool'),
+        '', 1, $suboptions ));
+
     $settings->add(new admin_setting_configselect('turnitin_default_spapercheck', get_string('spapercheck','turnitintool'),
                        '', 1, $ynoptions ));
 
