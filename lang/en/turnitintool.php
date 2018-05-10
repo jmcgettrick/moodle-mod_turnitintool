@@ -502,7 +502,7 @@ $string['privacy:metadata:turnitintool_comments:commenttext'] = 'A comment attac
 
 $string['privacy:metadata:turnitintool_client'] = 'To successfully make a submission to Turnitin, specific user data needs to be exchanged between Moodle and Turnitin.';
 $string['privacy:metadata:turnitintool_client:email'] = 'The user\'s email address is shared by Moodle to enable the creation of a Turnitin account.';
-$string['privacy:metadata:turnitintool_client:firstname'] = 'The user’s first name is sent to Turnitin so that the user can be identified.';
-$string['privacy:metadata:turnitintool_client:lastname'] = 'The user’s last name is sent to Turnitin so that the user can be identified.';
+$string['privacy:metadata:turnitintool_client:firstname'] = 'The user\'s first name is sent to Turnitin so that the user can be identified.';
+$string['privacy:metadata:turnitintool_client:lastname'] = 'The user\'s last name is sent to Turnitin so that the user can be identified.';
 $string['privacy:metadata:turnitintool_client:submission_title'] = 'The title of the submission is sent to Turntin so that it is identifiable.';
 $string['privacy:metadata:turnitintool_client:submission_filename'] = 'The name of the submitted file is sent to Turntin so that it is identifible.';
