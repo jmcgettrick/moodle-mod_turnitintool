@@ -160,7 +160,7 @@ class provider implements
                 ts.submission_unanonreason,
                 ts.submission_transmatch,
                 ts.submission_hash,
-                tu.turnitin_uid,
+                tu.turnitin_uid
                 FROM {context} c
                 INNER JOIN {course_modules} cm ON cm.id = c.instanceid
                 INNER JOIN {turnitintool} t ON t.id = cm.instance
