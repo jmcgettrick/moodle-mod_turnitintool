@@ -59,10 +59,7 @@ class provider implements
             'turnitintool_users',
             [
                 'userid' => 'privacy:metadata:turnitintool_users:userid',
-                'turnitin_uid' => 'privacy:metadata:turnitintool_users:turnitin_uid',
-                'instructor_defaults' => 'privacy:metadata:turnitintool_users:instructor_defaults',
-                'instructor_rubrics' => 'privacy:metadata:turnitintool_users:instructor_rubrics',
-                'user_agreement_accepted' => 'privacy:metadata:turnitintool_users:user_agreement_accepted',
+                'turnitin_uid' => 'privacy:metadata:turnitintool_users:turnitin_uid'
             ],
             'privacy:metadata:turnitintool_users'
         );
@@ -164,9 +161,6 @@ class provider implements
                 ts.submission_transmatch,
                 ts.submission_hash,
                 tu.turnitin_uid,
-                tu.instructor_defaults,
-                tu.instructor_rubrics,
-                tu.user_agreement_accepted
                 FROM {context} c
                 INNER JOIN {course_modules} cm ON cm.id = c.instanceid
                 INNER JOIN {turnitintool} t ON t.id = cm.instance
