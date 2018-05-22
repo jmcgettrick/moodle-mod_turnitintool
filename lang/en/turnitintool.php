@@ -462,8 +462,8 @@ $string['transmatch_desc'] = 'Determines whether Translated Matching will be ava
 $string['turnitintool:addinstance'] = 'Add Turnitin Tool Activity';
 $string['allowlate_help'] = 'This setting allows the instructor to select whether they will allow late submissions to the assignment. If set to yes, students will be able to submit to the assignment after the due date if they have not previously made a submission. If set to no, students will not be able to submit after the due date of the assignment.';
 $string['reportgenspeed_help'] = 'There are three options for this assignment setting: &#34;Generate reports immediately (resubmissions are not allowed)&#34;, &#34;Generate reports immediately (resubmissions are allowed until due date)&#34;, and &#34;Generate reports on due date (resubmissions are allowed until due date)&#34;.<br><br>The option &#34;immediately first report is final&#34; generates the Originality Report immediately when a student makes a submission. With this option selected your students will not be able to resubmit to the assignment.<br><br>To allow resubmissions, select &#34;immediately (can overwrite reports until due date)&#34; option. This allows students to continuously resubmit papers to the assignment until the due date. It may take up to 24 hours to process Originality Reports for resubmissions.<br><br>The option &#34;on due date&#34; will only generate an Originality Report on the assignment\&#39;s due date. This setting will make it so all papers submitted to the assignment will be compared against each other when the Originality Reports are created.';
-$string['submitpapersto_help'] = 'This setting provides instructors with the ability to select whether papers are stored in a Turnitin student paper repository. The benefit of submitting papers to the student paper repository is that student papers submitted to the assignment are checked against other students\&#39; submissions within your current and previous classes. If you select &#34;no repository&#34;, your students\&#39; papers will not be stored in the Turnitin student paper repository.';
-$string['spapercheck_help'] = 'This setting allows the instructor to select which Turnitin repositories students\&#39; submissions will be checked against when processing Originality Reports for papers. The similarity index percentage may decrease if a repository option is de-selected.';
+$string['submitpapersto_help'] = '<strong>No Repository: </strong><br />Turnitin is instructed to not store submitted documents to any repository. We will only process the paper to perform the initial similarity check.<br /><br /><strong>Standard Repository: </strong><br />Turnitin will store a copy of the submitted document only in the Standard Repository. By choosing this option, Turnitin is instructed to only use stored documents to make similarity checks against any documents submitted in the future.<br /><br /><strong>Institutional Repository (Where Applicable): </strong><br />Choosing this option instructs Turnitin to only add submitted documents to a repository private to your institution. Similarity checks to the submitted documents will only be made by other instructors within your institution.';
+$string['spapercheck_help'] = 'Choosing this option instructs Turnitin to only add submitted documents to a repository private to your institution. Similarity checks to the submitted documents will be made by other instructors within your institution.';
 $string['internetcheck_help'] = 'This setting allows the instructor to select which Turnitin repositories students\&#39; submissions will be checked against when processing Originality Reports for papers. The similarity index percentage may decrease if a repository option is de-selected.';
 $string['journalcheck_help'] = 'This setting allows the instructor to select which Turnitin repositories students\&#39; submissions will be checked against when processing Originality Reports for papers. The similarity index percentage may decrease if a repository option is de-selected.';
 $string['excludebiblio_help'] = 'This setting allows the instructor to choose to exclude text appearing in the bibliography, works cited, or references sections of student papers from being checked for matches when generating Originality Reports. This setting can be overridden in individual Originality Reports.';
@@ -472,3 +472,37 @@ $string['excludevalue_help'] = 'This setting allows the instructor to choose to 
 $string['erater_help'] = 'When this setting is enabled, submissions viewed within GradeMark will also contain feedback marks for grammar and other writing traits.';
 $string['transmatch_help'] = 'When Translated Matching is enabled Turnitin will generate a separate Originality Report based on English translations of students\&#39; non-English language submissions. The following languages are supported for Translated Matching:<br><br>Czech, Danish, Dutch, Finnish, French, German, Greek, Hungarian, Italian, Polish, Portuguese, Romanian, Spanish, Swedish and Turkish.';
 $string['genspeednote'] = 'Note: Originality Report generation for resubmissions is subject to a twenty-four hour delay.';
+
+// Privacy strings for GDPR.
+$string['privacy:metadata:core_files'] = 'Turnitin Assignment stores files that have been uploaded to Moodle to form a Turnitin submission.';
+$string['privacy:metadata:turnitintool_users'] = 'Information that links a Moodle user to a Turnitin user account and any preferences specific to Turnitin. These include default assignment settings and any Turnitin rubrics owned by them.';
+$string['privacy:metadata:turnitintool_users:userid'] = 'The ID of the user being linked to a Turnitin account.';
+$string['privacy:metadata:turnitintool_users:turnitin_uid'] = 'The user\'s Turnitin account ID.';
+$string['privacy:metadata:turnitintool_users:instructor_defaults'] = 'The instructor\'s default assignment settings';
+$string['privacy:metadata:turnitintool_users:instructor_rubrics'] = 'The Turnitin rubric scorecards that belong to the instructor';
+$string['privacy:metadata:turnitintool_users:user_agreement_accepted'] = 'Indicates whether this user has accepted the Turnitin End User Licence Agreement (EULA).';
+
+$string['privacy:metadata:turnitintool_submissions'] = 'Information about a submission that has been sent to Turnitin.';
+$string['privacy:metadata:turnitintool_submissions:userid'] = 'The ID of the user who has made a submission.';
+$string['privacy:metadata:turnitintool_submissions:submission_title'] = 'The title of the submission.';
+$string['privacy:metadata:turnitintool_submissions:submission_filename'] = 'The name of the file that has been submitted to Turnitin.';
+$string['privacy:metadata:turnitintool_submissions:submission_objectid'] = 'The ID used by Turnitin to reference the submission.';
+$string['privacy:metadata:turnitintool_submissions:submission_score'] = 'The similarity score of the submission.';
+$string['privacy:metadata:turnitintool_submissions:submission_grade'] = 'The grade applied by an instructor to the submission.';
+$string['privacy:metadata:turnitintool_submissions:submission_attempts'] = 'A timestamp indicating when the user viewed feedback on their submission.';
+$string['privacy:metadata:turnitintool_submissions:submission_modified'] = 'A timestamp indicating when the user last modified their submission.';
+$string['privacy:metadata:turnitintool_submissions:submission_unanon'] = 'Indicates that the anonymity of a submission has been removed, making the author\'s identity available to the instructor.';
+$string['privacy:metadata:turnitintool_submissions:submission_unanonreason'] = 'An explanation for the removal of an author’s anonymity, supplied by their instructor.';
+$string['privacy:metadata:turnitintool_submissions:submission_transmatch'] = 'Indicates whether Turnitin used translated matching to produce a Similarity Report for the submission.';
+$string['privacy:metadata:turnitintool_submissions:submission_hash'] = 'A submission specific hash containing the user\'s ID.';
+
+$string['privacy:metadata:turnitintool_comments'] = 'Comments made about a submission that has been sent to Turnitin.';
+$string['privacy:metadata:turnitintool_comments:userid'] = 'The ID of the user who has made a comment.';
+$string['privacy:metadata:turnitintool_comments:commenttext'] = 'A comment attached to a submission.';
+
+$string['privacy:metadata:turnitintool_client'] = 'To successfully make a submission to Turnitin, specific user data needs to be exchanged between Moodle and Turnitin.';
+$string['privacy:metadata:turnitintool_client:email'] = 'The user\'s email address is shared by Moodle to enable the creation of a Turnitin account.';
+$string['privacy:metadata:turnitintool_client:firstname'] = 'The user\'s first name is sent to Turnitin so that the user can be identified.';
+$string['privacy:metadata:turnitintool_client:lastname'] = 'The user\'s last name is sent to Turnitin so that the user can be identified.';
+$string['privacy:metadata:turnitintool_client:submission_title'] = 'The title of the submission is sent to Turntin so that it is identifiable.';
+$string['privacy:metadata:turnitintool_client:submission_filename'] = 'The name of the submitted file is sent to Turntin so that it is identifible.';
