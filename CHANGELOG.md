@@ -5,7 +5,7 @@
 
 You can find out more about Moodle 3.5 via [Moodle's release notes](https://docs.moodle.org/dev/Moodle_3.5_release_notes). 
 
-## Turnitin's Moodle V2 plugin is GDPR compliant!
+## Turnitin's Moodle V1 plugin is GDPR compliant!
     
 To support upcoming changes to European data protection law, we’ve focused our efforts on refreshing our processes around how we use your data.
         
