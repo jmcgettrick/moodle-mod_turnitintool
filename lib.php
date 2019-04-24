@@ -4326,7 +4326,7 @@ function turnitintool_update_form_grades($cm,$turnitintool,$post) {
         if (empty($thisgrade) OR $thisgrade!=$submission->submission_grade) {
 
             $user=turnitintool_get_moodleuser($submission->userid,NULL,__FILE__,__LINE__);
-            $update = new object;
+            $update = new stdClass();
             $update->id=$id;
             $update->submission_grade=$thisgrade;
 
