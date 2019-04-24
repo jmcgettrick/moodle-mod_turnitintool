@@ -4,8 +4,6 @@
  * @copyright 2012 Turnitin
  */
 
-
-
 $capabilities = array(
 
     'mod/turnitintool:view' => array(
@@ -51,12 +49,3 @@ $capabilities = array(
         'clonepermissionsfrom' => 'moodle/course:manageactivities'
     )
 );
-
-// Check for version older than 2.0
-if (!is_callable('upgrade_plugins_modules')) {
-	$mod_turnitintool_capabilities = $capabilities;
-}
-
-
-
-/* ?> */
